@@ -1,11 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TradeSource360 || Agriculture & Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 </head>
+
 <body>
-    Product
+    <!-- Header -->
+    <div class="bg-gray-50 relative py-3 z-50">
+        <!-- Navbar -->
+        <nav class="bg-white px-4 sm:px-[5%] shadow-sm w-full border-b border-gray-100 fixed top-0 r-0 l-0">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between h-16">
+
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/">
+                            <img src="../assets/logo.png" alt="Logo" class="h-40 w-auto object-contain">
+                        </a>
+                    </div>
+
+                    <!-- Desktop Nav Links -->
+                    <div class="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-end ml-8">
+                        <a href="./index.html" class="text-sm font-medium text-green-600 relative group">
+                            Home
+                            <span class="absolute -bottom-1 left-0 h-0.5 bg-green-600 w-full"></span>
+                        </a>
+                        <a href="./pages/about.html"
+                            class="text-sm font-medium text-gray-600 hover:text-green-600 relative group">
+                            About
+                            <span
+                                class="absolute -bottom-1 left-0 h-0.5 bg-green-600 w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="./pages/product.html"
+                            class="text-sm font-medium text-gray-600 hover:text-green-600 relative group">
+                            Products
+                            <span
+                                class="absolute -bottom-1 left-0 h-0.5 bg-green-600 w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="./pages/services.html"
+                            class="text-sm font-medium text-gray-600 hover:text-green-600 relative group">
+                            Service
+                            <span
+                                class="absolute -bottom-1 left-0 h-0.5 bg-green-600 w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="./pages/contact.html"
+                            class="text-sm font-medium text-gray-600 hover:text-green-600 relative group">
+                            Contact
+                            <span
+                                class="absolute -bottom-1 left-0 h-0.5 bg-green-600 w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+
+                        <!-- Search -->
+                        <div class="relative mx-4">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <!-- Search Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+                                </svg>
+                            </div>
+                            <input type="text" placeholder="Search"
+                                class="w-40 lg:w-64 pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 hover:border-green-300 transition-colors">
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex gap-2">
+                            <a href="./pages/signup.html" class="decoration-none">
+                                <button
+                                    class="px-4 py-2 bg-green-600 text-white rounded-lg hover:shadow-md transition-shadow">
+                                    Sign Up
+                                </button>
+                            </a>
+
+                            <a href="./pages/login.html" class="decoration-none">
+                                <button onclick="window.location.href='/login'"
+                                    class="px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors">
+                                    Login
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="menu-toggle"
+                            class="text-gray-700 hover:text-green-600 p-2 rounded-md focus:outline-none">
+                            <!-- Menu Icon -->
+                            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <!-- X Icon (hidden by default) -->
+                            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200">
+                    <div class="px-2 pt-2 pb-3 space-y-3 bg-white">
+                        <a href="/"
+                            class="block px-3 py-2 text-base font-medium text-green-600 bg-green-50 rounded-md">Home</a>
+                        <a href="/about"
+                            class="block px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md">About</a>
+                        <a href="/products"
+                            class="block px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md">Products</a>
+                        <a href="/service"
+                            class="block px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md">Service</a>
+                        <a href="/contact"
+                            class="block px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md">Contact</a>
+
+                        <!-- Mobile Search -->
+                        <div class="px-3 py-2">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+                                    </svg>
+                                </div>
+                                <input type="text" placeholder="Search"
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 hover:border-green-300 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Buttons -->
+                        <div class="px-3 py-2 flex gap-2">
+                            <button onclick="window.location.href='/signup'"
+                                class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:shadow-md transition-shadow">
+                                Sign Up
+                            </button>
+                            <button onclick="window.location.href='/login'"
+                                class="w-full px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Navbar Function -->
+        <script>
+            const menuToggle = document.getElementById("menu-toggle");
+            const menuIcon = document.getElementById("menu-icon");
+            const closeIcon = document.getElementById("close-icon");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            menuToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuIcon.classList.toggle("hidden");
+                closeIcon.classList.toggle("hidden");
+            });
+        </script>
+
+
+
+
+
+        <!-- background-image -->
+
+        <div class="py-[1%]">
+            <div style="background-image: url('../assets/Breadcrumbs.png');"
+                class="h-40 flex bg-cover md:bg-contain bg-no-repeat bg-center my-[3%]">
+                <div class="flex gap-3 px-[20%] items-center justify-center">
+                    <img src="../assets/home.png" alt="products icon" class="w-5 h-5">
+                    <span class="text-gray-400">></span>
+                    <h3 class="text-green-700 text-[l.5rem] font-[400] text-center ">Products</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Product Listening -->
+        <div class="px-[5%] pb-[3%] flex flex-col justify-center">
+            <div class="max-w-6xl mx-auto">
+                <!-- Main Filter Container -->
+                <div class="bg-white p-4 rounded">
+                    <!-- Top Row - Dropdowns and Filter Chips -->
+                    <div class="flex flex-wrap flex-col md:flex-row gap-4 mb-6">
+                        <!-- Category Dropdown -->
+                        <div class="flex gap-4">
+                            <div>
+                                <button id="categoryBtn"
+                                    class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <span id="categoryText">Category</span>
+                                    <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="categoryDropdown"
+                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
+                                    <div class="py-1">
+                                        <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                            Categories</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Vegetables</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Fruits</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Grains</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Dairy</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sales Type Dropdown -->
+                            <div>
+                                <button id="salesTypeBtn"
+                                    class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <span id="salesTypeText">Sales Type</span>
+                                    <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="salesTypeDropdown"
+                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
+                                    <div class="py-1">
+                                        <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                            Sales
+                                            Types</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Retail</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Wholesale</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Online</button>
+                                        <button
+                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Direct</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Dropdown -->
+                        <div>
+                            <button id="locationBtn"
+                                class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <span id="locationText">Location</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div id="locationDropdown"
+                                class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
+                                <div class="py-1">
+                                    <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                        Locations</button>
+                                    <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">New
+                                        York</button>
+                                    <button
+                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">California</button>
+                                    <button
+                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Texas</button>
+                                    <button
+                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Florida</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filter Chips -->
+                        <div class="flex gap-2 md:ml-auto">
+                            <button id="allProductsBtn"
+                                class="px-4 py-2 bg-green-100 border border-green-300 shadow-lg rounded-full text-sm text-green-700 hover:bg-green-200 transition-colors duration-200">
+                                All Products
+                            </button>
+                            <button id="organicChip"
+                                class="px-4 py-2 bg-white border border-gray-300 shadow-lg rounded-full text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                Organic
+                            </button>
+                            <button id="nonOrganicChip"
+                                class="px-4 py-2 bg-white border border-gray-300 shadow-lg rounded-full text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                Non-Organic
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row - Sorting Options -->
+                    <div class="border-b border-gray-200 overflow-x-auto overflow-y-hidden">
+                        <nav class="-mb-px flex min-w-max">
+                            <button id="newestBtn"
+                                class="px-4 hover:border-b-[3px] focus:border-b-[3px] focus:text-green-700 border-gray-300 py-2 text-sm font-medium text-gray-900 transition-colors duration-200">
+                                Newest
+                            </button>
+                            <button id="priceLowHighBtn"
+                                class="px-4 hover:border-b-[3px] focus:border-b-[3px] focus:text-green-700 border-gray-300 py-2 text-sm font-medium text-gray-900 transition-colors duration-200">
+                                Price: Low to High
+                            </button>
+                            <button id="priceHighLowBtn"
+                                class="px-4 hover:border-b-[3px] focus:border-b-[3px] focus:text-green-700 border-gray-300 py-2 text-sm font-medium text-gray-900 transition-colors duration-200">
+                                Price: High to Low
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Product Catalog Area -->
+                <div class="mt-8">
+                    <div id="activeFilters" class="px-[5%] py-[3%] flex flex-col justify-center">
+                        <div
+                            class="text-[#121714] justify-center font-[500] text-[1rem] grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-10">
+                            <!-- Products will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Product Database
+                const products = [
+                    {
+                        id: 1,
+                        name: "Premium Arabica Coffee Beans",
+                        location: "Addis Ababa, Ethiopia",
+                        image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop",
+                        category: "Grains",
+                        salesType: "Retail",
+                        locationFilter: "California",
+                        organic: true,
+                        price: 45.99
+                    },
+                    {
+                        id: 3,
+                        name: "Grass-Fed Whole Milk",
+                        location: "Vermont Farm, New York",
+                        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop",
+                        category: "Dairy",
+                        salesType: "Direct",
+                        locationFilter: "New York",
+                        organic: false,
+                        price: 6.75
+                    },
+                    {
+                        id: 4,
+                        name: "Golden Delicious Apples",
+                        location: "Washington Orchards",
+                        image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop",
+                        category: "Fruits",
+                        salesType: "Online",
+                        locationFilter: "Texas",
+                        organic: true,
+                        price: 12.30
+                    },
+                    {
+                        id: 5,
+                        name: "Wild Caught Salmon",
+                        location: "Alaska Waters",
+                        image: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=400&h=300&fit=crop",
+                        category: "Grains",
+                        salesType: "Retail",
+                        locationFilter: "Florida",
+                        organic: false,
+                        price: 28.90
+                    },
+                    {
+                        id: 6,
+                        name: "Organic Baby Spinach",
+                        location: "Local Greenhouse, Texas",
+                        image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=300&fit=crop",
+                        category: "Vegetables",
+                        salesType: "Wholesale",
+                        locationFilter: "Texas",
+                        organic: true,
+                        price: 4.25
+                    },
+                    {
+                        id: 7,
+                        name: "Fresh Strawberries",
+                        location: "California Farms",
+                        image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=300&fit=crop",
+                        category: "Fruits",
+                        salesType: "Direct",
+                        locationFilter: "California",
+                        organic: false,
+                        price: 15.80
+                    },
+                    {
+                        id: 8,
+                        name: "Artisan Goat Cheese",
+                        location: "Mountain View Dairy, Florida",
+                        image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=300&fit=crop",
+                        category: "Dairy",
+                        salesType: "Online",
+                        locationFilter: "Florida",
+                        organic: true,
+                        price: 22.50
+                    },
+                    {
+                        id: 9,
+                        name: "Quinoa Grain Mix",
+                        location: "Colorado Fields",
+                        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop",
+                        category: "Grains",
+                        salesType: "Retail",
+                        locationFilter: "New York",
+                        organic: true,
+                        price: 18.40
+                    },
+                    {
+                        id: 10,
+                        name: "Heirloom Carrots",
+                        location: "Organic Farm, New York",
+                        image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=300&fit=crop",
+                        category: "Vegetables",
+                        salesType: "Direct",
+                        locationFilter: "New York",
+                        organic: true,
+                        price: 7.60
+                    }
+                ];
+
+                // State management
+                let state = {
+                    category: null,
+                    salesType: null,
+                    location: null,
+                    organic: false,
+                    nonOrganic: false,
+                    sortBy: 'newest',
+                };
+
+                // Shuffle array function for random display
+                function shuffleArray(array) {
+                    const shuffled = [...array];
+                    for (let i = shuffled.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                    }
+                    return shuffled;
+                }
+
+                // Filter products based on current state - ALWAYS from complete product database
+                function filterProducts() {
+                    // ALWAYS start fresh from complete product list
+                    let filtered = [...products];
+
+                    // Apply all filters at once from the complete database
+                    if (state.category) {
+                        filtered = filtered.filter(product => product.category === state.category);
+                    }
+                    if (state.salesType) {
+                        filtered = filtered.filter(product => product.salesType === state.salesType);
+                    }
+                    if (state.location) {
+                        filtered = filtered.filter(product => product.locationFilter === state.location);
+                    }
+                    if (state.organic && !state.nonOrganic) {
+                        filtered = filtered.filter(product => product.organic === true);
+                    }
+                    if (state.nonOrganic && !state.organic) {
+                        filtered = filtered.filter(product => product.organic === false);
+                    }
+
+                    // Apply sorting
+                    switch (state.sortBy) {
+                        case 'priceLowHigh':
+                            filtered.sort((a, b) => a.price - b.price);
+                            break;
+                        case 'priceHighLow':
+                            filtered.sort((a, b) => b.price - a.price);
+                            break;
+                        case 'newest':
+                        default:
+                            filtered = shuffleArray(filtered); // Random display for "newest"
+                            break;
+                    }
+
+                    return filtered;
+                }
+
+                // Create product card HTML
+                function createProductCard(product) {
+                    return `
+                <div class="max-w-xs rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover">
+                    <div class="p-4 flex flex-col gap-2">
+                        <h4 class="font-semibold text-gray-800">${product.name}</h4>
+                        <p class="text-sm font-[400] text-[#59964F]">${product.location}</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-lg font-[500] text-gray-900">₦${product.price}</span>
+                            ${product.organic ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>' : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+                }
+
+                // Update active filters display with product cards
+                function updateActiveFilters() {
+                    const activeFiltersDiv = document.getElementById('activeFilters');
+                    const gridContainer = activeFiltersDiv.querySelector('.grid');
+
+                    const filteredProducts = filterProducts();
+
+                    if (filteredProducts.length === 0) {
+                        gridContainer.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No products match your current filters.</div>';
+                    } else {
+                        gridContainer.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
+                    }
+                }
+
+                // Reset all filters to show all products
+                function resetAllFilters() {
+                    state = {
+                        category: null,
+                        salesType: null,
+                        location: null,
+                        organic: false,
+                        nonOrganic: false,
+                        sortBy: 'newest',
+                    };
+
+                    // Reset dropdown texts
+                    document.getElementById('categoryText').textContent = 'Category';
+                    document.getElementById('salesTypeText').textContent = 'Sales Type';
+                    document.getElementById('locationText').textContent = 'Location';
+
+                    // Reset chip buttons
+                    document.getElementById('allProductsBtn').classList.remove('bg-white', 'border-gray-300', 'text-gray-700');
+                    document.getElementById('allProductsBtn').classList.add('bg-green-100', 'border-green-300', 'text-green-700');
+
+                    document.getElementById('organicChip').classList.remove('bg-green-100', 'border-green-300', 'text-green-700');
+                    document.getElementById('organicChip').classList.add('bg-white', 'border-gray-300', 'text-gray-700');
+
+                    document.getElementById('nonOrganicChip').classList.remove('bg-green-100', 'border-green-300', 'text-green-700');
+                    document.getElementById('nonOrganicChip').classList.add('bg-white', 'border-gray-300', 'text-gray-700');
+
+                    // Reset sort buttons
+                    document.getElementById('newestBtn').classList.remove('text-green-600');
+                    document.getElementById('newestBtn').classList.add('bg-gray-100', 'text-gray-900');
+
+                    document.getElementById('priceLowHighBtn').classList.remove('text-green-700', 'bg-green-50');
+                    document.getElementById('priceLowHighBtn').classList.add('text-green-600');
+
+                    document.getElementById('priceHighLowBtn').classList.remove('text-green-700', 'bg-green-50');
+                    document.getElementById('priceHighLowBtn').classList.add('text-green-600');
+
+                    updateActiveFilters();
+                }
+
+                // Dropdown functionality
+                function setupDropdown(buttonId, dropdownId, textId, stateKey) {
+                    const button = document.getElementById(buttonId);
+                    const dropdown = document.getElementById(dropdownId);
+                    const text = document.getElementById(textId);
+                    const arrow = button.querySelector('svg');
+
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+
+                        // Close other dropdowns
+                        document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
+                            if (d !== dropdown) {
+                                d.classList.add('hidden');
+                                d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('hidden');
+                        arrow.classList.toggle('rotate-180');
+                    });
+
+                    // Handle option selection
+                    dropdown.addEventListener('click', (e) => {
+                        if (e.target.tagName === 'BUTTON') {
+                            const value = e.target.textContent;
+
+                            // Handle "All" buttons - reset the filter
+                            if (value.includes('All')) {
+                                text.textContent = buttonId === 'categoryBtn' ? 'Category' :
+                                    buttonId === 'salesTypeBtn' ? 'Sales Type' : 'Location';
+                                state[stateKey] = null;
+                            } else {
+                                text.textContent = value;
+                                state[stateKey] = value;
+                            }
+
+                            dropdown.classList.add('hidden');
+                            arrow.classList.remove('rotate-180');
+                            updateActiveFilters();
+                        }
+                    });
+                }
+
+                // Setup all dropdowns
+                setupDropdown('categoryBtn', 'categoryDropdown', 'categoryText', 'category');
+                setupDropdown('salesTypeBtn', 'salesTypeDropdown', 'salesTypeText', 'salesType');
+                setupDropdown('locationBtn', 'locationDropdown', 'locationText', 'location');
+
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', () => {
+                    document.querySelectorAll('[id$="Dropdown"]').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                        dropdown.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    });
+                });
+
+                // Filter chips functionality
+                function setupChip(chipId, stateKey) {
+                    const chip = document.getElementById(chipId);
+
+                    chip.addEventListener('click', () => {
+                        // If clicking the "All Products" button
+                        if (chipId === 'allProductsBtn') {
+                            resetAllFilters();
+                            return;
+                        }
+
+                        // For organic/non-organic chips
+                        state[stateKey] = !state[stateKey];
+
+                        // Update the "All Products" button state
+                        if (state.organic || state.nonOrganic) {
+                            document.getElementById('allProductsBtn').classList.remove('bg-green-100', 'border-green-300', 'text-green-700');
+                            document.getElementById('allProductsBtn').classList.add('bg-white', 'border-gray-300', 'text-gray-700');
+                        }
+
+                        if (state[stateKey]) {
+                            chip.classList.remove('bg-white', 'border-gray-300', 'text-gray-700');
+                            chip.classList.add('bg-green-100', 'border-green-300', 'text-green-700');
+                        } else {
+                            chip.classList.remove('bg-green-100', 'border-green-300', 'text-green-700');
+                            chip.classList.add('bg-white', 'border-gray-300', 'text-gray-700');
+                        }
+
+                        updateActiveFilters();
+                    });
+                }
+
+                setupChip('allProductsBtn', null);
+                setupChip('organicChip', 'organic');
+                setupChip('nonOrganicChip', 'nonOrganic');
+
+                // Sorting functionality
+                function setupSortButton(buttonId, sortValue) {
+                    const button = document.getElementById(buttonId);
+
+                    button.addEventListener('click', () => {
+                        // Remove active state from all sort buttons
+                        document.querySelectorAll('[id$="Btn"]').forEach(btn => {
+                            if (btn.id.includes('newest') || btn.id.includes('price')) {
+                                btn.classList.remove('bg-gray-100', 'text-gray-900', 'bg-green-50', 'text-green-700');
+                                btn.classList.add('text-green-600');
+                            }
+                        });
+
+                        // Add active state to clicked button
+                        if (sortValue === 'newest') {
+                            button.classList.remove('text-green-600');
+                            button.classList.add('bg-gray-100', 'text-gray-900');
+                        } else {
+                            button.classList.remove('text-green-600');
+                            button.classList.add('bg-green-50', 'text-green-700');
+                        }
+
+                        state.sortBy = sortValue;
+                        updateActiveFilters();
+                    });
+                }
+
+                setupSortButton('newestBtn', 'newest');
+                setupSortButton('priceLowHighBtn', 'priceLowHigh');
+                setupSortButton('priceHighLowBtn', 'priceHighLow');
+
+                // Initialize with all products displayed randomly
+                updateActiveFilters();
+            </script>
+        </div>
+    </div>
 </body>
+
 </html>

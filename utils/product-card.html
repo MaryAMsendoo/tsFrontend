@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Grade Organic Avocados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+    <div class="px-[5%] py-[3%]">
+
+        <!-- Breadcrumb -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-3">
+                    <li>
+                        <a href="./pages/product.html" class="text-[#59964F] hover:text-green-600">Products</a>
+                    </li>
+                    <li>
+                        <span class="text-gray-400">/</span>
+                    </li>
+                    <li>
+                        <span class="text-gray-500">Fresh Produce</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+            <!-- Product Title -->
+            <h1 class="text-3xl font-[700] text-gray-900 mb-2">Premium Grade Organic Avocados</h1>
+
+            <!-- Product Meta Info -->
+            <div class="text-sm text-[#59964F] mb-8">
+                <span>Category: Fresh Produce</span> |
+                <span>Location: Michoacan, Mexico</span> |
+                <span>Vendor: AgroFarms Inc.</span> |
+                <span>Verified Supplier</span> |
+                <span>Sales Type: Export-Ready</span>
+            </div>
+
+            <!-- Product Images Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-6">
+                <!-- Main Image -->
+                <div class="space-y-4">
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-100 rounded-lg overflow-hidden">
+                        <img id="mainImage"
+                            src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=600&h=600&fit=crop"
+                            alt="Premium Avocados" class="w-full h-96 object-cover">
+                    </div>
+
+                    <!-- Thumbnail Images -->
+                    <div class="grid grid-cols-4 gap-4">
+                        <img onclick="changeMainImage(this.src)"
+                            src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=150&h=150&fit=crop"
+                            alt="Avocado 1"
+                            class="w-full h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 border-2 border-green-500">
+                        <img onclick="changeMainImage(this.src)"
+                            src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=150&h=150&fit=crop"
+                            alt="Avocado 2"
+                            class="w-full h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 border-2 border-transparent hover:border-green-500">
+                        <img onclick="changeMainImage(this.src)"
+                            src="https://images.unsplash.com/photo-1601039641847-7857b994d704?w=150&h=150&fit=crop"
+                            alt="Avocado 3"
+                            class="w-full h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 border-2 border-transparent hover:border-green-500">
+                        <img onclick="changeMainImage(this.src)"
+                            src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=150&h=150&fit=crop"
+                            alt="Avocado 4"
+                            class="w-full h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 border-2 border-transparent hover:border-green-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Actions -->
+            <div class="mb-2">
+                <div class="flex space-x-4 text-[#0F1C0D]">
+                    <button class="bg-green-700 px-6 py-2 rounded-md hover:bg-green-600 transition-colors">Request
+                        Quote</button>
+                    <button
+                        class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg bg-green-50 hover:bg-green-200 transition-colors">Chat
+                        with Vendor</button>
+                </div>
+
+                <!-- Key Details -->
+                <div class="">
+                    <h3 class="text-lg font-[700] text-gray-900 mt-4 mb-2">Key Details</h3>
+                    <p class="text-[#0F1C0D] font-[400] text-.9rem mb-4">
+                        Export Grade: Premium | Organic: Certified Organic | Origin: Michoacan, Mexico | Packaging:
+                        10kg boxes, suitable for export. Our avocados are grown using sustainable practices and are
+                        hand-picked to ensure the highest quality. Available for international delivery.
+                    </p>
+                    <div class="flex space-x-4 text-[#0F1C0D] text-xs">
+                        <span class="bg-green-100 px-3 py-1 rounded-lg">Organic</span>
+                        <span class="bg-green-100 px-3 py-1 rounded-lg">Gov't Approved</span>
+                        <span class="bg-green-100 px-3 py-1 rounded-lg">Verified
+                            Supplier</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vendor Information -->
+            <div class="py-6 mb-8 flex justify-between">
+                <div class="flex flex-col gap-4 mb-4">
+                    <h3 class="text-lg font-[700] text-gray-900">Vendor Information</h3>
+                    <div class="w-50 flex flex-col gap-1">
+                        <p class="text-sm text-[#59964F]">Vendor</p>
+                        <h5>AgroFarms Inc</h5>
+                        <p class="text-sm text-[#59964F]">Michoacan, Mexico</p>
+                    </div>
+                    <button
+                        class="bg-green-100 text-gray-900 font-[400] px-4 py-1 rounded-lg text-sm hover:bg-green-200">View
+                        Vendor
+                        Profile</button>
+                </div>
+                <div class="flex items-end md:w-[33.3%] w-[50%]">
+                    <div class="ml-auto text-center w-full">
+                        <img src="./assets/bg-img1.png" alt="Vendor Badge w-full">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specifications Tabs -->
+            <div class="">
+                    <div class="border-b border-gray-200 overflow-x-auto overflow-y-hidden">
+                        <nav class="-mb-px flex min-w-max">
+                            <button onclick="showTab('specs')" id="specs-tab"
+                                class="tab-button active border-transparent text-green-600 whitespace-nowrap py-4 px-6 border-b-[3px] font-medium text-sm">
+                                Specifications
+                            </button>
+                            <button onclick="showTab('shipping')" id="shipping-tab"
+                                class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-6 border-b-[3px] font-medium text-sm">
+                                Shipping & Packaging
+                            </button>
+                            <button onclick="showTab('reviews')" id="reviews-tab"
+                                class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-6 border-b-[3px] font-medium text-sm">
+                                Reviews & Ratings
+                            </button>
+                        </nav>
+                    </div>
+
+                <div class="p-6">
+                    <!-- Specifications Tab Content -->
+                    <div id="specs-content" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2 text-[.9rem]">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-green-600">Weight</span>
+                                    <span class="font-medium">150-250g per fruit</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-green-600">Quality Grade</span>
+                                    <span class="font-medium">Premium</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-green-600">Harvest Date</span>
+                                    <span class="font-medium">October 2024</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="text-green-600">Storage Method</span>
+                                    <span class="font-medium">Refrigerated</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Tab Content -->
+                    <div id="shipping-content" class="tab-content hidden">
+                        <div class="space-y-4">
+                            <p class="text-gray-600">Our avocados are carefully packaged in 10kg export boxes with
+                                proper ventilation and cushioning to ensure they arrive in perfect condition.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>International shipping available</li>
+                                <li>Cold chain logistics maintained</li>
+                                <li>Packaging: 10kg boxes</li>
+                                <li>Lead time: 7-10 days</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab Content -->
+                    <div id="reviews-content" class="tab-content hidden">
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex text-yellow-400">
+                                    <span>★★★★★</span>
+                                </div>
+                                <span class="text-gray-600">4.8 out of 5 (24 reviews)</span>
+                            </div>
+                            <p class="text-gray-600">Customers consistently rate our premium avocados highly for
+                                freshness, size, and taste.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">Related Products</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg border overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300&h=200&fit=crop"
+                            alt="Fresh Mangoes" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium text-gray-900">Fresh Mangoes</h4>
+                            <p class="text-sm text-green-600">From Veracruz, Mexico</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg border overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=300&h=200&fit=crop"
+                            alt="Organic Coffee Beans" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium text-gray-900">Organic Coffee Beans</h4>
+                            <p class="text-sm text-green-600">From Chiapas, Mexico</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg border overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300&h=200&fit=crop"
+                            alt="Premium Olive Oil" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium text-gray-900">Premium Olive Oil</h4>
+                            <p class="text-sm text-green-600">From Andalusia, Spain</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg border overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1586985564150-0f5ba80dd0ce?w=300&h=200&fit=crop"
+                            alt="Sustainable Timber" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-medium text-gray-900">Sustainable Timber</h4>
+                            <p class="text-sm text-green-600">From British Columbia, Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Image gallery functionality
+            function changeMainImage(src) {
+                document.getElementById('mainImage').src = src;
+
+                // Update thumbnail borders
+                const thumbnails = document.querySelectorAll('[onclick*="changeMainImage"]');
+                thumbnails.forEach(thumb => {
+                    thumb.classList.remove('border-green-500');
+                    thumb.classList.add('border-transparent');
+                });
+
+                // Add border to clicked thumbnail
+                event.target.classList.remove('border-transparent');
+                event.target.classList.add('border-green-500');
+            }
+
+            // Tab functionality
+            function showTab(tabName) {
+                // Hide all tab contents
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Remove active state from all tab buttons
+                const tabButtons = document.querySelectorAll('.tab-button');
+                tabButtons.forEach(button => {
+                    button.classList.remove('active', 'text-green-600', 'border-green-500');
+                    button.classList.add('text-gray-500', 'border-transparent');
+                });
+
+                // Show selected tab content
+                document.getElementById(tabName + '-content').classList.remove('hidden');
+
+                // Add active state to selected tab button
+                const activeButton = document.getElementById(tabName + '-tab');
+                activeButton.classList.remove('text-gray-500', 'border-transparent');
+                activeButton.classList.add('active', 'text-green-600', 'border-green-500');
+            }
+        </script>
+
+        <style>
+            .tab-button.active {
+                border-bottom-color: #10b981;
+                color: #10b981;
+            }
+        </style>
+    </div>
+</body>
+
+</html>
