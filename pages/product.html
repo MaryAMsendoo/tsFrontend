@@ -16,9 +16,9 @@
 
 <body>
     <!-- Header -->
-    <div class="bg-gray-50 relative py-3 z-50">
+    <div class="bg-gray-50 relative py-3">
         <!-- Navbar -->
-        <nav class="bg-white px-4 sm:px-[5%] shadow-sm w-full border-b border-gray-100 fixed top-0 r-0 l-0">
+        <nav class="bg-white px-4 sm:px-[5%] z-50 shadow-sm w-full border-b border-gray-100 fixed top-0 r-0 l-0">
             <div class="max-w-7xl mx-auto">
                 <div class="flex items-center justify-between h-16">
 
@@ -199,7 +199,7 @@
                     <div class="flex flex-wrap flex-col md:flex-row gap-4 mb-6">
                         <!-- Category Dropdown -->
                         <div class="flex gap-4">
-                            <div>
+                            <div class="relative">
                                 <button id="categoryBtn"
                                     class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
                                     <span id="categoryText">Category</span>
@@ -210,24 +210,24 @@
                                     </svg>
                                 </button>
                                 <div id="categoryDropdown"
-                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
-                                    <div class="py-1">
-                                        <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg  hidden">
+                                    <div class="py-1 text-gray-700 text-left">
+                                        <button class="w-full px-4 py-2 hover:bg-gray-50">All
                                             Categories</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Vegetables</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Vegetables</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Fruits</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Fruits</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Grains</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Grains</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Dairy</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Dairy</button>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Sales Type Dropdown -->
-                            <div>
+                            <div class="relative">
                                 <button id="salesTypeBtn"
                                     class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
                                     <span id="salesTypeText">Sales Type</span>
@@ -238,26 +238,26 @@
                                     </svg>
                                 </button>
                                 <div id="salesTypeDropdown"
-                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
-                                    <div class="py-1">
-                                        <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                    class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                                    <div class="py-1 text-gray-700 text-left">
+                                        <button class="w-full px-4 py-2 hover:bg-gray-50">All
                                             Sales
                                             Types</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Retail</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Retail</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Wholesale</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Wholesale</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Online</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Online</button>
                                         <button
-                                            class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Direct</button>
+                                            class="w-full px-4 py-2 hover:bg-gray-50">Direct</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Location Dropdown -->
-                        <div>
+                        <div class="relative">
                             <button id="locationBtn"
                                 class="flex items-center justify-between w-40 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
                                 <span id="locationText">Location</span>
@@ -269,18 +269,18 @@
                                 </svg>
                             </button>
                             <div id="locationDropdown"
-                                class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
-                                <div class="py-1">
-                                    <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">All
+                                class="absolute top-full left-0 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                                <div class="py-1 text-left text-gray-700">
+                                    <button class="w-full px-4 py-2 hover:bg-gray-50">All
                                         Locations</button>
-                                    <button class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">New
+                                    <button class="w-full px-4 py-2 hover:bg-gray-50">New
                                         York</button>
                                     <button
-                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">California</button>
+                                        class="w-full px-4 py-2 hover:bg-gray-50">California</button>
                                     <button
-                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Texas</button>
+                                        class="w-full px-4 py-2 hover:bg-gray-50">Texas</button>
                                     <button
-                                        class="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700">Florida</button>
+                                        class="w-full px-4 py-2 hover:bg-gray-50">Florida</button>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                 </div>
 
                 <!-- Product Catalog Area -->
-                <div class="mt-8">
+                <div class="mt-8 cursor-pointer">
                     <div id="activeFilters" class="px-[5%] py-[3%] flex flex-col justify-center">
                         <div
                             class="text-[#121714] justify-center font-[500] text-[1rem] grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-10">
