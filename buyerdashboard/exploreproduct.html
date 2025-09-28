@@ -12,22 +12,22 @@
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    
+
     <style>
         .active-filter {
             background-color: #dcfce7;
             border-color: #22c55e;
             color: #166534;
         }
-        
+
         .filter-chip {
             transition: all 0.2s ease;
         }
-        
+
         .dropdown-option:hover {
             background-color: #f0fdf4;
         }
-        
+
         .sticky-filters {
             position: sticky;
             top: 0;
@@ -40,408 +40,155 @@
 </head>
 
 <body class="bg-gray-50">
-    <div class="flex flex-col px-[5%] py-[3%]">
+    <div class="flex px-[5%] py-[3%]">
         <!-- Sticky Filter Bar -->
         <div class="sticky-filters">
             <div class="container mx-auto px-4">
-               
-                
-                <div class="flex flex-wrap gap-2 items-center">
-                    <!-- Category Filter -->
-                    <div class="relative">
-                        <button id="categoryBtn"
-                            class="flex items-center justify-between px-2 py-2 bg-gray-50 text-sm border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                            <span id="categoryText">Category</span>
-                            <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="categoryDropdown"
-                            class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                            <div class="py-1 text-gray-700 text-left">
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Vegetables">Vegetables</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Fruits">Fruits</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Grains">Grains</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Dairy">Dairy</button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Sales Type Filter -->
-                    <div class="relative">
-                        <button id="salesTypeBtn"
-                            class="flex items-center justify-between text-sm px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                            <span id="salesTypeText">Sales Type</span>
-                            <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="salesTypeDropdown"
-                            class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                            <div class="py-1 text-gray-700 text-left">
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Retail">Retail</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Wholesale">Wholesale</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Online">Online</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Direct">Direct</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Location Filter -->
-                    <div class="relative">
-                        <button id="locationBtn"
-                            class="flex items-center justify-between text-sm px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                            <span id="locationText">Location</span>
-                            <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="locationDropdown"
-                            class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                            <div class="py-1 text-gray-700 text-left>
-                                <button class="w-full text-left px-4 py-2 dropdown-option" data-value="New York">New York</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="California">California</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Texas">Texas</button>
-                                <button class="w-full px-4 py-2 dropdown-option" data-value="Florida">Florida</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Filter Chips -->
+                <div class="flex md:flex-row flex-col gap-2">
                     <div class="flex gap-2">
-                        <button id="allProductsBtn"
-                            class="px-4 py-2 active-filter filter-chip rounded-lg text-sm transition-colors duration-200">
-                            All Products
-                        </button>
-                        <button id="organicChip"
-                            class="px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
-                            Organic
-                        </button>
-                        <button id="nonOrganicChip"
-                            class="px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
-                            Non-Organic
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <!-- Category Filter -->
+                        <div class="relative text-sm">
+                            <button id="categoryBtn"
+                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <span id="categoryText">Category</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="categoryDropdown"
+                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
+                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
+                                    <a href="#" class="w-full py-2 dropdown-option"
+                                        data-value="Vegetables">Vegetables</a>
 
-        <!-- Main Content -->
-        <div class="flex-1 container mx-auto px-4 py-8 cursor-pointer">
-            <!-- Product Catalog Area -->
-            <div id="activeFilters" class="flex flex-col justify-center">
-                <div id="productGrid" class="text-[#121714] justify-center font-[500] text-[1rem] grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
-                    <!-- Products will be dynamically inserted here -->
-                </div>
-            </div>
-        </div>
-    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <script>
-        // Product Database - Simulating a database
-        const products = [
-            {
-                id: 1,
-                name: "Premium Arabica Coffee Beans",
-                location: "Addis Ababa, Ethiopia",
-                image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop",
-                category: "Grains",
-                salesType: "Retail",
-                locationFilter: "California",
-                organic: true,
-                price: 45.99
-            },
-            {
-                id: 3,
-                name: "Grass-Fed Whole Milk",
-                location: "Vermont Farm, New York",
-                image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop",
-                category: "Dairy",
-                salesType: "Direct",
-                locationFilter: "New York",
-                organic: false,
-                price: 6.75
-            },
-            {
-                id: 4,
-                name: "Golden Delicious Apples",
-                location: "Washington Orchards",
-                image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop",
-                category: "Fruits",
-                salesType: "Online",
-                locationFilter: "Texas",
-                organic: true,
-                price: 12.30
-            },
-            {
-                id: 5,
-                name: "Wild Caught Salmon",
-                location: "Alaska Waters",
-                image: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=400&h=300&fit=crop",
-                category: "Grains",
-                salesType: "Retail",
-                locationFilter: "Florida",
-                organic: false,
-                price: 28.90
-            },
-            {
-                id: 10,
-                name: "Heirloom Carrots",
-                location: "Organic Farm, New York",
-                image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=300&fit=crop",
-                category: "Vegetables",
-                salesType: "Direct",
-                locationFilter: "New York",
-                organic: true,
-                price: 7.60
-            },
-            {
-                id: 11,
-                name: "Organic Spinach",
-                location: "California Fields",
-                image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=300&fit=crop",
-                category: "Vegetables",
-                salesType: "Wholesale",
-                locationFilter: "California",
-                organic: true,
-                price: 4.25
-            },
-            {
-                id: 12,
-                name: "Fresh Strawberries",
-                location: "Florida Farms",
-                image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400&h=300&fit=crop",
-                category: "Fruits",
-                salesType: "Retail",
-                locationFilter: "Florida",
-                organic: false,
-                price: 8.75
-            },
-            {
-                id: 13,
-                name: "Artisan Cheese",
-                location: "Wisconsin Dairy",
-                image: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&h=300&fit=crop",
-                category: "Dairy",
-                salesType: "Online",
-                locationFilter: "Texas",
-                organic: true,
-                price: 15.99
-            }
-        ];
+                        <!-- Sales Type Filter -->
+                        <div class="relative text-sm">
+                            <button id="salesTypeBtn"
+                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <span id="salesTypeText">Sales Type</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="salesTypeDropdown"
+                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
+                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
+                                    <a href="#" class="w-full py-2 dropdown-option cursor-pointer decoration-none"
+                                        data-value="Retail">Retail</a>
+                                </div>
+                            </div>
+                        </div>
 
-        // State management
-        let state = {
-            category: null,
-            salesType: null,
-            location: null,
-            organic: false,
-            nonOrganic: false
-        };
+                        <!-- Location Filter -->
+                        <div class="relative text-sm">
+                            <button id="locationBtn"
+                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <span id="locationText">Location</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="locationDropdown"
+                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
+                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
+                                    <a href="#"
+                                        class="w-full cursor-pointer text-left py-2 dropdown-option decoration-none"
+                                        data-value="New York">New York</a>
+                                </div>
+                            </div>
 
-        // Function to fetch products from database (simulated)
-        function fetchProductsFromDatabase() {
-            // In a real application, this would be an API call
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve([...products]);
-                }, 100); // Simulate network delay
-            });
-        }
+                            <!-- Filter Chips -->
 
-        // Filter products based on current state
-        async function filterProducts() {
-            // Fetch fresh data from database
-            const allProducts = await fetchProductsFromDatabase();
-            let filtered = [...allProducts];
-
-            if (state.category) {
-                filtered = filtered.filter(product => product.category === state.category);
-            }
-            if (state.salesType) {
-                filtered = filtered.filter(product => product.salesType === state.salesType);
-            }
-            if (state.location) {
-                filtered = filtered.filter(product => product.locationFilter === state.location);
-            }
-            if (state.organic && !state.nonOrganic) {
-                filtered = filtered.filter(product => product.organic === true);
-            }
-            if (state.nonOrganic && !state.organic) {
-                filtered = filtered.filter(product => product.organic === false);
-            }
-
-            return filtered;
-        }
-
-        // Create product card HTML
-        function createProductCard(product) {
-            return `
-                <div class="bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">${product.name}</h4>
-                        <p class="text-sm text-[#59964F] mb-3">${product.location}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-medium text-gray-900">₦${product.price}</span>
-                            ${product.organic ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>' : ''}
                         </div>
                     </div>
+                    <div class="flex gap-2 md:border-l border-gray-200 md:pl-2">
+                        <a href="#" id="allProductsBtn"
+                            class="px-4 py-2 active-filter cursor-pointer filter-chip rounded-lg text-sm transition-colors duration-200">
+                            All Products
+                        </a>
+                        <a href="#" id="organicChip"
+                            class="px-4 py-2 decoration-none cursor-pointer bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                            Organic
+                        </a>
+                        <a href="#" id="nonOrganicChip"
+                            class="px-4 decoration-none py-2 cursor-pointer bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                            Non-Organic
+                        </a>
+                    </div>
                 </div>
-            `;
-        }
+            </div>
 
-        // Update active filters display with product cards
-        async function updateActiveFilters() {
-            const productGrid = document.getElementById('productGrid');
-            
-            // Show loading state
-            productGrid.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">Loading products...</div>';
+            <!-- Main Content -->
+            <div class="flex-1 container mx-auto px-4 py-8 cursor-pointer">
+                <!-- Product Catalog Area -->
+                <div id="activeFilters" class="flex flex-col justify-center">
+                    <div id="productGrid"
+                        class="text-[#121714] justify-center font-[500] text-[1rem] grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
+                        <!-- Products will be dynamically inserted here -->
 
-            const filteredProducts = await filterProducts();
+                        <!-- product card here -->
+                        <div
+                            class="max-w-xs rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover">
+                            <div class="p-4 flex flex-col gap-2">
+                                <h4 class="font-semibold text-gray-800">${product.name}</h4>
+                                <p class="text-sm font-[400] text-[#59964F]">${product.location}</p>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-lg font-[500] text-gray-900">₦${product.price}</span>
+                                    ${product.organic ? '<span
+                                        class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>'
+                                    :
+                                    ''}
+                                </div>
+                            </div>
+                        </div>
 
-            if (filteredProducts.length === 0) {
-                productGrid.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No products match your current filters.</div>';
-            } else {
-                productGrid.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
-            }
-        }
 
-        // Reset all filters to show all products
-        function resetAllFilters() {
-            state = {
-                category: null,
-                salesType: null,
-                location: null,
-                organic: false,
-                nonOrganic: false
-            };
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            // Reset dropdown texts
-            document.getElementById('categoryText').textContent = 'Category';
-            document.getElementById('salesTypeText').textContent = 'Sales Type';
-            document.getElementById('locationText').textContent = 'Location';
+        <script>
+            function setupDropdown(buttonId, dropdownId) {
+                const button = document.getElementById(buttonId);
+                const dropdown = document.getElementById(dropdownId);
+                const arrow = button.querySelector('svg');
 
-            // Reset chip buttons
-            document.getElementById('allProductsBtn').className = 'px-4 py-2 active-filter filter-chip rounded-lg text-sm transition-colors duration-200';
-            document.getElementById('organicChip').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-            document.getElementById('nonOrganicChip').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-
-            updateActiveFilters();
-        }
-
-        // Dropdown functionality
-        function setupDropdown(buttonId, dropdownId, textId, stateKey) {
-            const button = document.getElementById(buttonId);
-            const dropdown = document.getElementById(dropdownId);
-            const text = document.getElementById(textId);
-            const arrow = button.querySelector('svg');
-
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-
-                // Close other dropdowns
-                document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
-                    if (d !== dropdown) {
-                        d.classList.add('hidden');
-                        d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-                    }
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.add('hidden');
+                            d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                        }
+                    });
+                    dropdown.classList.toggle('hidden');
+                    arrow.classList.toggle('rotate-180');
                 });
+            }
+            setupDropdown('categoryBtn', 'categoryDropdown');
+            setupDropdown('salesTypeBtn', 'salesTypeDropdown');
+            setupDropdown('locationBtn', 'locationDropdown');
 
-                // Toggle current dropdown
-                dropdown.classList.toggle('hidden');
-                arrow.classList.toggle('rotate-180');
+            document.addEventListener('click', () => {
+                document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
+                    d.classList.add('hidden');
+                    d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                });
             });
-
-            // Handle option selection
-            dropdown.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') {
-                    const value = e.target.textContent;
-                    const dataValue = e.target.getAttribute('data-value');
-
-                    // Update state and UI
-                    text.textContent = value;
-                    state[stateKey] = dataValue;
-
-                    // Update "All Products" button state
-                    document.getElementById('allProductsBtn').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-
-                    dropdown.classList.add('hidden');
-                    arrow.classList.remove('rotate-180');
-                    updateActiveFilters();
-                }
-            });
-        }
-
-        // Setup all dropdowns
-        setupDropdown('categoryBtn', 'categoryDropdown', 'categoryText', 'category');
-        setupDropdown('salesTypeBtn', 'salesTypeDropdown', 'salesTypeText', 'salesType');
-        setupDropdown('locationBtn', 'locationDropdown', 'locationText', 'location');
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', () => {
-            document.querySelectorAll('[id$="Dropdown"]').forEach(dropdown => {
-                dropdown.classList.add('hidden');
-                dropdown.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-            });
-        });
-
-        // Filter chips functionality
-        function setupChip(chipId, stateKey) {
-            const chip = document.getElementById(chipId);
-
-            chip.addEventListener('click', () => {
-                // If clicking the "All Products" button
-                if (chipId === 'allProductsBtn') {
-                    resetAllFilters();
-                    return;
-                }
-
-                // For organic/non-organic chips
-                state[stateKey] = !state[stateKey];
-
-                // Update button styles
-                if (state[stateKey]) {
-                    chip.className = 'px-4 py-2 active-filter filter-chip rounded-lg text-sm transition-colors duration-200';
-                    
-                    // If both organic and non-organic are selected, deselect the other
-                    if (chipId === 'organicChip' && state.nonOrganic) {
-                        state.nonOrganic = false;
-                        document.getElementById('nonOrganicChip').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-                    } else if (chipId === 'nonOrganicChip' && state.organic) {
-                        state.organic = false;
-                        document.getElementById('organicChip').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-                    }
-                } else {
-                    chip.className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-                }
-
-                // Update "All Products" button state
-                document.getElementById('allProductsBtn').className = 'px-4 py-2 bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200';
-
-                updateActiveFilters();
-            });
-        }
-
-        setupChip('allProductsBtn', null);
-        setupChip('organicChip', 'organic');
-        setupChip('nonOrganicChip', 'nonOrganic');
-
-        // Initialize with all products displayed
-        updateActiveFilters();
-        
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-    </script>
+        </script>
 </body>
 
 </html>
