@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <div class="max-w-6xl mx-auto px-8 lg:ml-64 py-10">
+    <!-- Header -->
+    <h1 class="text-2xl md:text-3xl font-bold mb-2">Add New Product</h1>
+    <p class="text-gray-600 mb-8">Choose the category of product you want to list.</p>
+
+    <!-- Grid Cards -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Card 1: Farm Produce -->
+      <div class="group bg-white rounded-lg p-6 flex flex-col justify-between shadow-md hover:bg-black hover:text-white focus:bg-black focus:text-white transition cursor-pointer">
+        <div>
+          <div class="text-4xl mb-4 text-gray-700 group-hover:text-gray-300">
+<i class="fa-solid fa-plant-wilt"></i>
+          </div>
+          <h2 class="text-xl font-semibold mb-2">Farm Produce</h2>
+          <p class="text-sm mb-6">List grains, tubers, fruits, vegetables, and cash crops.</p>
+        </div>
+        <a href="#" class="bg-black text-center cursor-pointer text-white hover:text-black font-semibold px-4 py-2 rounded transition group-hover:bg-white group-hover:text-black">
+          Add Farm Produce
+        </a>
+      </div>
+
+      <!-- Card 2: Farm tools & Machinery -->
+      <div class="group bg-white rounded-lg p-6 flex flex-col justify-between shadow-md hover:bg-black hover:text-white focus:bg-black focus:text-white transition cursor-pointer">
+        <div>
+          <div class="text-4xl mb-4 text-gray-700 group-hover:text-gray-300">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h2 class="text-xl font-semibold mb-2">Farm tools & <span class="text-green-600 group-hover:text-green-300">Machinery</span></h2>
+          <p class="text-sm mb-6">Upload tractors, harvesters, equipment, and accessories.</p>
+        </div>
+      <a href="#" class="bg-black text-center cursor-pointer text-white hover:text-black font-semibold px-4 py-2 rounded transition group-hover:bg-white group-hover:text-black">
+          Add Farm Tools
+      </a>
+      </div>
+
+      <!-- Card 3: Services -->
+      <div class="group bg-white rounded-lg p-6 flex flex-col justify-between shadow-md hover:bg-black hover:text-white focus:bg-black focus:text-white transition cursor-pointer">
+        <div>
+          <div class="text-4xl mb-4 text-gray-700 group-hover:text-gray-300">
+            <i class="fas fa-user-cog"></i>
+          </div>
+          <h2 class="text-xl font-semibold mb-2">Services</h2>
+          <p class="text-sm mb-6">Register logistics, warehousing, inspection, or consulting services.</p>
+        </div>
+      <a href="#" class="bg-black text-center cursor-pointer text-white hover:text-black font-semibold px-4 py-2 rounded transition group-hover:bg-white group-hover:text-black">
+          Add Service
+      </a>
+      </div>
+
+      <!-- Card 4: Natural Resources -->
+      <div class="group bg-white rounded-lg p-6 flex flex-col justify-between shadow-md hover:bg-black hover:text-white focus:bg-black focus:text-white transition cursor-pointer">
+        <div>
+          <div class="text-4xl mb-4 text-gray-700 group-hover:text-gray-300">
+<i class="fa-solid fa-tree"></i> </div>
+          <h2 class="text-xl font-semibold mb-2">Natural Resources</h2>
+          <p class="text-sm mb-6">Gold, Lead, Zinc, Coal, Barite & other minerals.</p>
+        </div>
+        <a href="#" class="bg-black text-center cursor-pointer text-white hover:text-black font-semibold px-4 py-2 rounded transition group-hover:bg-white group-hover:text-black">
+          Add Natural Resource
+        </a>
+      </div>
+
+      <!-- Card 5: Others -->
+      <div class="group bg-white rounded-lg p-6 flex flex-col justify-between shadow-md hover:bg-black hover:text-white focus:bg-black focus:text-white transition cursor-pointer">
+        <div>
+          <div class="text-4xl mb-4 text-gray-700 group-hover:text-gray-300">
+            <i class="fa-solid fa-ethernet"></i>
+          </div>
+          <h2 class="text-xl font-semibold mb-2">Others</h2>
+          <p class="text-sm mb-6">For products or services not listed under the main categories.</p>
+        </div>
+      <a href="#" class="bg-black text-center cursor-pointer text-white hover:text-black font-semibold px-4 py-2 rounded transition group-hover:bg-white group-hover:text-black">
+          Add Other Product
+      </a>
+      </div>
+
+    </div>
+
+    <!-- Footer Note -->
+    <p class="text-center text-gray-500 text-sm mt-10">
+      You can freely add farm produce, tools, services, and others. 
+      <span class="font-semibold">Natural Resources require a subscription before listing.</span>
+    </p>
+  </div>
+
+</body>
+</html>
