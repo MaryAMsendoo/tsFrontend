@@ -1,4 +1,61 @@
-:root{
+:root {
     --primary: '#128212';
     --secondary: '#0F1C0D';
 }
+
+/* dashboard -sidebar */
+.sidebar-transition {
+    transition: transform 0.3s ease-in-out;
+}
+
+.overlay-transition {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.active-menu-item {
+    background-color: #f3f4f6;
+}
+
+.active-menu-item span {
+    color: #111827;
+}
+
+.active-menu-item svg {
+    color: #111827;
+}
+
+/* add new product  */
+.step-indicator {
+    transition: all 0.3s ease;
+}
+
+.step-indicator.active {
+    background-color: #059669;
+    color: white;
+}
+
+.drag-drop-area {
+    border: 2px dashed #d1d5db;
+    transition: all 0.3s ease;
+}
+
+.drag-drop-area.dragover {
+    border-color: #059669;
+    background-color: #f0fdf4;
+}
+
+/* my order  */
+.calendar-day {
+            transition: all 0.2s ease;
+        }
+        .calendar-day:hover:not(.disabled) {
+            background-color: #f3f4f6;
+        }
+        .calendar-day.selected {
+            background-color: #059669;
+            color: white;
+        }
+        .calendar-day.disabled {
+            color: #d1d5db;
+            cursor: not-allowed;
+        }

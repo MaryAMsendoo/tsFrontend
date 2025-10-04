@@ -7,27 +7,7 @@
     <title>TradeSource Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .sidebar-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .overlay-transition {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .active-menu-item {
-            background-color: #f3f4f6;
-        }
-
-        .active-menu-item span {
-            color: #111827;
-        }
-
-        .active-menu-item svg {
-            color: #111827;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="bg-gray-50">
@@ -163,7 +143,7 @@
 
                     <!-- Search and Profile -->
                     <div class="flex items-center space-x-4">
-                       
+
                         <!-- Search -->
                         <div class="relative hidden md:block">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -178,14 +158,14 @@
                                 placeholder="Search">
                         </div>
 
-                         <!-- add product -->
-                         <div class="flex flex-row gap-2 text-sm font-500">
+                        <!-- add product -->
+                        <div class="flex flex-row gap-2 text-sm font-500">
                             <a href="#" class="bg-green-700 text-gray-200 py-1 px-4 rounded ">Add Product</a>
                             <a href="#" class="bg-green-100 text-gray-800 py-1 px-4 rounded ">View store</a>
-                         </div>
+                        </div>
 
                         <!-- Notifications -->
-                         <button
+                        <button
                             class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300">
                             <i class="fas fa-bell"></i>
                             <span
@@ -351,82 +331,7 @@
         </main>
     </div>
 
-    <script>
-        // Sidebar toggle functionality
-        const toggleSidebar = document.getElementById('toggleSidebar');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        // Profile dropdown functionality
-        const profileDropdown = document.getElementById('profileDropdown');
-        const profileMenu = document.getElementById('profileMenu');
-
-        function openSidebar() {
-            sidebar.classList.remove('-translate-x-full');
-            overlay.classList.remove('hidden');
-        }
-
-        function closeSidebar() {
-            sidebar.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
-        }
-
-        function toggleProfileMenu() {
-            profileMenu.classList.toggle('hidden');
-        }
-
-        // Event listeners
-        toggleSidebar.addEventListener('click', openSidebar);
-        overlay.addEventListener('click', closeSidebar);
-        profileDropdown.addEventListener('click', toggleProfileMenu);
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function (event) {
-            const isClickInsideSidebar = sidebar.contains(event.target);
-            const isClickOnToggle = toggleSidebar.contains(event.target);
-
-            if (!isClickInsideSidebar && !isClickOnToggle && window.innerWidth < 1024 && !sidebar.classList.contains('-translate-x-full')) {
-                closeSidebar();
-            }
-        });
-
-        // Set active menu item
-        document.querySelectorAll('#sidebar a').forEach(item => {
-            item.addEventListener('click', function () {
-                document.querySelectorAll('#sidebar a').forEach(i => {
-                    i.classList.remove('active-menu-item');
-                });
-                this.classList.add('active-menu-item');
-            });
-        });
-
-        // Close profile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!profileDropdown.contains(event.target) && !profileMenu.contains(event.target)) {
-                profileMenu.classList.add('hidden');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.add('hidden');
-            } else {
-                closeSidebar();
-            }
-        });
-
-        // Close sidebar when clicking on sidebar menu items on mobile
-        const sidebarLinks = document.querySelectorAll('#sidebar a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                if (window.innerWidth < 1024) {
-                    closeSidebar();
-                }
-            });
-        });
-    </script>
+    <script src=""></script>
 </body>
 
 </html>
