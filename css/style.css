@@ -59,3 +59,16 @@
             color: #d1d5db;
             cursor: not-allowed;
         }
+
+
+        /* profile - Buyer View */
+        .star-rating {
+    color: #128212;
+}
+.nav-tab.active {
+    border-bottom: 2px solid #128212;
+    color: #128212;
+}
+.tab-content {
+    transition: all 0.3s ease;
+}

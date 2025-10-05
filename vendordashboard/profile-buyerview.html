@@ -8,7 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .star-rating {
+            color: #128212;
+        }
 
+        .nav-tab.active {
+            border-bottom: 2px solid #128212;
+            color: #128212;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
@@ -205,25 +214,9 @@
         <main class="pt-16 p-4">
             <!-- Cover Photo Section -->
             <div class="relative mb-6">
-                <div id="coverPhotoContainer"
-                    class="h-64 w-full bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden">
-                    <span id="coverPlaceholder" class="text-gray-500">Cover Photo Placeholder</span>
-                    <img id="coverPreview" src="" alt="Cover Photo" class="hidden w-full h-full object-cover">
+                <div class="h-64 w-full bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden">
+                    <span class="text-gray-500">Cover Photo</span>
                 </div>
-
-                <!-- Hidden file input -->
-                <input type="file" id="coverPhotoInput" accept="image/*" class="hidden">
-
-                <button id="editCoverBtn"
-                    class="absolute bottom-8 right-4 border-[#128212] border-2 px-4 py-2 text-[#128212] rounded-lg text-sm font-medium hover:bg-gray-100">
-                    <i class="fas fa-camera mr-2"></i>Edit Cover Photo
-                </button>
-
-                <!-- Remove photo button (shown only when image is uploaded) -->
-                <button id="removeCoverBtn"
-                    class="absolute top-4 right-44 bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-600 hidden">
-                    <i class="fas fa-trash mr-2"></i>Remove
-                </button>
             </div>
 
             <!-- Profile Header -->
@@ -243,14 +236,137 @@
                                 </div>
                             </div>
                             <div class="mt-4 md:mt-0">
-                                <a href="#"
-                                    class="border-[#128212] border-2 text-[#128212] px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-800">Edit
-                                    Profile</a>
+                                <button
+                                    class="bg-[#128212] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-green-800">
+                                    Contact Vendor
+                                </button>
                             </div>
                         </div>
                         <div class="mt-4 text-gray-600">
                             <p><i class="fas fa-map-marker-alt mr-2"></i>Location: California, USA</p>
                             <p class="mt-1"><i class="fas fa-calendar-alt mr-2"></i>Member Since: 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                <div class="flex space-x-8 border-b border-gray-200">
+                    <button class="nav-tab active pb-3 px-1 font-medium text-gray-900"
+                        data-tab="overview">Overview</button>
+                    <button class="nav-tab pb-3 px-1 font-medium text-gray-500 hover:text-gray-700"
+                        data-tab="products">Products/Services</button>
+                    <button class="nav-tab pb-3 px-1 font-medium text-gray-500 hover:text-gray-700"
+                        data-tab="reviews">Reviews</button>
+                    <button class="nav-tab pb-3 px-1 font-medium text-gray-500 hover:text-gray-700"
+                        data-tab="contact">Contact</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="mt-4">
+                    <!-- Overview Content -->
+                    <div id="overview-content" class="tab-content active">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="text-2xl font-bold text-[#128212] mb-2">5+</div>
+                                <div class="text-gray-600">Years in Business</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="text-2xl font-bold text-[#128212] mb-2">500+</div>
+                                <div class="text-gray-600">Happy Customers</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="text-2xl font-bold text-[#128212] mb-2">98%</div>
+                                <div class="text-gray-600">Satisfaction Rate</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products/Services Content -->
+                    <div id="products-content" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-semibold text-[#128212] mb-2">Agricultural Products</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Premium Grains & Cereals</li>
+                                    <li>• Organic Fruits & Vegetables</li>
+                                    <li>• Fresh Dairy Products</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-green-50 rounded-lg">
+                                <h4 class="font-semibold text-[#128212] mb-2">Services</h4>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Bulk Export Packaging</li>
+                                    <li>• International Shipping</li>
+                                    <li>• Quality Certification</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Content -->
+                    <div id="reviews-content" class="tab-content hidden">
+                        <div class="space-y-4">
+                            <!-- Rating Summary -->
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <div class="flex items-center mb-1">
+                                        <div class="star-rating text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="ml-2 text-sm font-medium">4.3/5.0</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">Based on 150 customer reviews</p>
+                                </div>
+                                <button class="bg-[#128212] text-white px-4 py-2 rounded text-sm hover:bg-green-700">
+                                    Write Review
+                                </button>
+                            </div>
+
+                            <!-- Interactive Rating Section -->
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3">Rate this vendor</h4>
+                                <div class="flex items-center space-x-1 mb-3" id="interactive-stars">
+                                    <!-- Interactive stars will be generated here -->
+                                </div>
+                                <p class="text-xs text-gray-500">Click on the stars to rate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Content -->
+                    <div id="contact-content" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold text-[#128212] mb-2">Contact Info</h4>
+                                <div class="space-y-2 text-gray-600">
+                                    <p class="flex items-center">
+                                        <i class="fas fa-phone-alt mr-2 text-xs"></i>
+                                        +1 (555) 123-4567
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-envelope mr-2 text-xs"></i>
+                                        contact@agricorp.com
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-globe mr-2 text-xs"></i>
+                                        www.agricorp-exports.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold text-[#128212] mb-2">Business Hours</h4>
+                                <div class="space-y-1 text-gray-600">
+                                    <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                                    <p>Saturday: 9:00 AM - 2:00 PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -309,7 +425,7 @@
                         <div class="flex items-center mb-6">
                             <div class="text-4xl font-bold text-gray-900 mr-4">4.3</div>
                             <div>
-                                <div class="star-rating text-[#128212] mb-1">
+                                <div class="star-rating mb-1">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -359,10 +475,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Write Review Section -->
+                    <div class="md:w-1/2 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-comment-alt text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Share Your Experience</h3>
+                            <p class="text-gray-600 text-sm mb-4">Be the first to review this vendor</p>
+                            <button
+                                class="bg-[#128212] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                                Write a Review
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+
     <script src="../js/script.js"></script>
     <script src="../js/profile.js"></script>
 </body>

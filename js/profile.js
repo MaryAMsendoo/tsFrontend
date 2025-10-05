@@ -84,3 +84,44 @@
                 }
             });
         });
+
+
+        // Profile - Buyers View
+        // Tab navigation functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.remove('text-gray-900');
+                        t.classList.add('text-gray-500');
+                    });
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        content.classList.add('hidden');
+                    });
+
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    this.classList.add('text-gray-900');
+                    this.classList.remove('text-gray-500');
+
+                    const targetContent = document.getElementById(`${targetTab}-content`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+
+
+        
