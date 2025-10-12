@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeSource | Services | Logistics & Freight Forwarding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Mobile overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed top-0 left-0 z-50 w-64 h-screen bg-white sidebar-transition transform -translate-x-full lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto">
+            <!-- Logo -->
+            <div class="flex items-center mb-8 px-3">
+                <div class="flex w-full h-10 items-center space-x-2">
+                    <img src="../assets/logo.png" alt="TradeSource360 Logo">
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <div class="flex flex-col justify-between h-[88%] md:h-[85%]">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-gray-900 rounded-lg bg-gray-100 hover:bg-gray-100 group">
+                            <i class="fas fa-home text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Dashboard (Overview)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-box text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-envelope text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">My Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-file-alt text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Quotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-bookmark text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Saved Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-comments text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-user-cog text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Profile & Settings</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <li class="mt-auto flex flex-end">
+                    <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                        <i class="fas fa-question-circle text-gray-500 group-hover:text-gray-900"></i>
+                        <span class="ml-3">Support / Help Center</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Fixed Navbar -->
+        <nav class="fixed top-0 right-0 left-0 lg:left-64 bg-white z-30">
+            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <!-- Mobile menu button -->
+                        <button id="toggleSidebar"
+                            class="inline-flex items-center p-4 text-2xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <!-- Search and Profile -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Search -->
+                        <div class="relative hidden md:block">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                            <input type="text"
+                                class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                placeholder="Search">
+                        </div>
+
+                        <!-- Notifications -->
+                        <button
+                            class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300">
+                            <i class="fas fa-bell"></i>
+                            <span
+                                class="absolute top-3 right-2 inline-flex items-center justify-center px-1 text-xs font-[400] leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
+                        </button>
+
+                        <!-- Profile -->
+                        <div class="relative">
+                            <button id="profileDropdown"
+                                class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                <img class="w-8 h-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="user photo">
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="profileMenu"
+                                class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow">
+                                <div class="px-4 py-3">
+                                    <p class="text-sm text-gray-900">Rejoice</p>
+                                    <p class="text-sm font-medium text-gray-500 truncate">rejoice@example.com</p>
+                                </div>
+                                <ul class="py-1">
+                                    <li><a href="#"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                    </li>
+                                    <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                            out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="pt-20 p-2">
+
+            <!-- Service Providers Section -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-1">Logistics & Freight Forwarding</h2>
+                <p class="text-green-700 font-[1rem]">Domestic haulage, export shipping, clearing & forwarding
+                    solutions.</p>
+
+                <!-- Provider Cards -->
+                <div class="space-y-6">
+                    <div class="grid grid-cols-4 gap-2 pb-2 border-b-2 border-gray-300 pr-8 mt-6">
+                        <a class="text-[14px] text-[#4F9478] hover:text-[#0D1C14] font-[600] cursor-pointer">Logistics &
+                            Freight Forwarding</a>
+                        <a class="text-[14px] text-[#4F9478] focus:text-[#0D1C14] font-[600] cursor-pointer">Warehousing
+                            & Cold Storage</a>
+                        <a class="text-[14px] text-[#4F9478] focus:text-[#0D1C14] font-[600] cursor-pointer">Quality
+                            Inspection & Certification</a>
+
+                        <a class="text-[14px] text-[#4F9478] focus:text-[#0D1C14] font-[600] cursor-pointer">Export
+                            Advisory & Trade Consulting</a>
+                    </div>
+
+                    <div class="bg-[#F7FCFA] rounded-lg shadow-sm overflow-hidden">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="flex-1 p-6">
+                                <p class="text-green-600 text-sm">Verified </p>
+                                <h3 class="text-xl font-bold text-gray-900">Ofen Logistics Nigeria Ltd</h3>
+                                <p class="text-green-600 text-sm mb-4">Logistics & Freight</p>
+                                <a href="#"
+                                    class="px-6 py-2 bg-[#E8F2EB] inline-block text-gray-700 rounded-lg font-medium hover:bg-gray-200">Request
+                                    a Quote</a>
+                            </div>
+                            <div class="md:w-60 py-3 mx-6 md:mx-4 h-48 md:h-40">
+                                <img src="../assets/truck1.png" alt="Truck" class="w-full h-full rounded object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#F7FCFA] rounded-lg shadow-sm overflow-hidden">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="flex-1 p-6">
+                                <p class="text-green-600 text-sm">Government Approved </p>
+                                <h3 class="text-xl font-bold text-gray-900">AgroMachinery Solutions</h3>
+                                <p class="text-green-600 text-sm mb-4">Equipment Leasing & Machinery Supply</p>
+                                <a href="#"
+                                    class="px-6 py-2 bg-[#E8F2EB] inline-block text-gray-700 rounded-lg font-medium hover:bg-gray-200">Request
+                                    a Quote</a>
+                            </div>
+                            <div class="md:w-60 py-3 mx-6 md:mx-4 h-48 md:h-40">
+                                <img src="../assets/truck2.png" alt="Truck" class="w-full h-full rounded object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center font-medium text-[#0D1C12] justify-center gap-2 py-8">
+                    <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-chevron-left text-sm"></i>
+                    </button>
+
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full focus:bg-[#E8F2EB]">
+                        1
+                    </button>
+
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full focus:bg-[#E8F2EB] hover:bg-gray-50 transition-colors">
+                        2
+                    </button>
+
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full focus:bg-[#E8F2EB] transition-colors font-medium">
+                        3
+                    </button>
+
+                    <span class="text-gray-600 px-2">...</span>
+
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full focus:bg-[#E8F2EB] transition-colors">
+                        10
+                    </button>
+
+                    <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-chevron-right text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- List your Service -->
+                <div
+                    class="h-[40vh] w-full text-center px-8 text-[#0F1C0D] flex items-center justify-center gap-4 flex-col bg-[url('../assets/bg-img3.png')] bg-cover bg-no-repeat bg-center mb-[3%]">
+                    <h1 class="md:text-4xl text-3xl font-[900]">Partner with verified Nigerian service providers to power your trade</h1>
+
+                    <a href="#"
+                        class="text-white mt-4 bg-[#128212] font-[600] px-6 py-2 rounded-[8px] cursor-pointer">Partner with
+                        verified Nigerian service providers to power your trade</a>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
