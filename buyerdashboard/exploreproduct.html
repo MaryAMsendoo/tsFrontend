@@ -16,15 +16,8 @@
 
     <!-- Sidebar -->
     <aside id="sidebar"
-        class="fixed top-0 left-0 z-50 w-64 h-screen bg-white sidebar-transition transform -translate-x-full lg:translate-x-0 border-r border-gray-200">
+        class="fixed bottom-0 left-0 z-50 w-64 h-screen lg:h-[87%] bg-white sidebar-transition transform -translate-x-full lg:translate-x-0">
         <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
-             <!-- Logo -->
-            <div class="flex pb-6">
-                <div class="flex w-full h-auto space-x-2">
-                    <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-14">
-                </div>
-            </div>
-
             <!-- Navigation Menu -->
             <nav class="flex-1">
                 <ul class="space-y-2 font-medium">
@@ -86,57 +79,67 @@
     <!-- Main Content -->
     <div class="lg:ml-64">
         <!-- Fixed Navbar -->
-        <nav class="fixed top-0 right-0 left-0 lg:left-64 bg-white z-30 border-b border-gray-200">
+        <nav class="fixed top-0 right-0 left-0 bg-white z-30">
             <div class="px-4 py-3 lg:px-6">
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <!-- Mobile menu button -->
-                        <button id="toggleSidebar"
-                            class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
-                            <i class="fas fa-bars"></i>
-                        </button>
+                    <!-- Logo -->
+                    <div class="flex pb-6">
+                        <div class="flex w-full h-auto space-x-2">
+                            <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-10 mt-2 md:h-14">
+                        </div>
                     </div>
+                    <div class="flex">
+                        <div class="flex items-center">
 
-                    <!-- Search and Profile -->
-                    <div class="flex items-center space-x-4">
-                        <!-- Search -->
-                        <div class="relative hidden md:block">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <i class="fas fa-search text-gray-400"></i>
-                            </div>
-                            <input type="text"
-                                class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
-                                placeholder="Search products...">
+                            <!-- Mobile menu button -->
+                            <button id="toggleSidebar"
+                                class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
+                                <i class="fas fa-bars"></i>
+                            </button>
                         </div>
 
-                        <!-- Notifications -->
-                        <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
-                            <i class="fas fa-bell text-lg"></i>
-                            <span
-                                class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
-                        </button>
-
-                        <!-- Profile -->
-                        <div class="relative">
-                            <button id="profileDropdown"
-                                class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
-                                <img class="w-8 h-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
-                                    alt="Profile">
-                            </button>
-                            <div id="profileMenu"
-                                class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
-                                <div class="px-4 py-3">
-                                    <p class="text-sm text-gray-900 font-medium">Rejoice</p>
-                                    <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                        <!-- Search and Profile -->
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative hidden md:block">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
                                 </div>
-                                <ul class="py-1">
-                                    <li><a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                                    </li>
-                                    <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
-                                            out</a></li>
-                                </ul>
+                                <input type="text"
+                                    class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                    placeholder="Search products...">
+                            </div>
+
+                            <!-- Notifications -->
+                            <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
+                                <i class="fas fa-bell text-lg"></i>
+                                <span
+                                    class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
+                            </button>
+
+                            <!-- Profile -->
+                            <div class="relative">
+                                <button id="profileDropdown"
+                                    class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+                                        alt="Profile">
+                                </button>
+                                <div id="profileMenu"
+                                    class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                    <div class="px-4 py-3">
+                                        <p class="text-sm text-gray-900 font-medium">Rejoice</p>
+                                        <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                                    </div>
+                                    <ul class="py-1">
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                        </li>
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                                out</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
