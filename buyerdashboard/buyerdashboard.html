@@ -7,15 +7,7 @@
     <title>TradeSource Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .sidebar-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .overlay-transition {
-            transition: opacity 0.3s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body class="bg-gray-50">
@@ -27,9 +19,9 @@
         class="fixed top-0 left-0 z-50 w-64 h-screen bg-white sidebar-transition transform -translate-x-full lg:translate-x-0">
         <div class="h-full px-3 py-4 overflow-y-auto">
             <!-- Logo -->
-            <div class="flex items-center mb-8 px-3">
-                <div class="flex w-full h-10 items-center space-x-2">
-                    <img src="../assets/logo.png" alt="TradeSource360 Logo">
+            <div class="flex pb-6">
+                <div class="flex w-full h-auto space-x-2">
+                    <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-14">
                 </div>
             </div>
 
@@ -303,77 +295,8 @@
         </main>
     </div>
 
-    <script>
-        // Sidebar toggle functionality
-        const toggleSidebar = document.getElementById('toggleSidebar');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        // Profile dropdown functionality
-        const profileDropdown = document.getElementById('profileDropdown');
-        const profileMenu = document.getElementById('profileMenu');
-
-        function openSidebar() {
-            sidebar.classList.remove('-translate-x-full');
-            overlay.classList.remove('hidden');
-        }
-
-        function closeSidebar() {
-            sidebar.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
-        }
-
-        function toggleProfileMenu() {
-            profileMenu.classList.toggle('hidden');
-        }
-
-        // Event listeners
-        toggleSidebar.addEventListener('click', openSidebar);
-        overlay.addEventListener('click', closeSidebar);
-        profileDropdown.addEventListener('click', toggleProfileMenu);
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function (event) {
-            const isClickInsideSidebar = sidebar.contains(event.target);
-            const isClickOnToggle = toggleSidebar.contains(event.target);
-
-            if (!isClickInsideSidebar && !isClickOnToggle && !sidebar.classList.contains('-translate-x-full')) {
-                closeSidebar();
-            }
-        });
-
-        // Close profile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!profileDropdown.contains(event.target) && !profileMenu.contains(event.target)) {
-                profileMenu.classList.add('hidden');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.add('hidden');
-            } else {
-                closeSidebar();
-            }
-        });
-
-        // Close sidebar when clicking on sidebar menu items on mobile
-        const sidebarLinks = document.querySelectorAll('#sidebar a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                // Only close sidebar on mobile screens
-                if (window.innerWidth < 1024) {
-                    closeSidebar();
-                }
-            });
-        });
-
-        // Mobile search toggle (optional)
-        function toggleMobileSearch() {
-            // Add mobile search functionality here if needed
-        }
+    <script src="../js/script.js">
+        
     </script>
 </body>
 

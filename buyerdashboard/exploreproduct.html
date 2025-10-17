@@ -4,191 +4,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradeSource360 || Agriculture & Services</title>
+    <title>TradeSource360 || Explore Products</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/favicon.png" />
-
-    <!-- AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <style>
-        .active-filter {
-            background-color: #dcfce7;
-            border-color: #22c55e;
-            color: #166534;
-        }
-
-        .filter-chip {
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-option:hover {
-            background-color: #f0fdf4;
-        }
-
-        .sticky-filters {
-            position: sticky;
-            top: 0;
-            background-color: white;
-            z-index: 10;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="bg-gray-50">
-    <div class="flex px-[5%] py-[3%]">
-        <!-- Sticky Filter Bar -->
-        <div class="sticky-filters">
-            <div class="container mx-auto px-4">
+    <!-- Mobile overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
 
-                <div class="flex md:flex-row flex-col gap-2">
-                    <div class="flex gap-2">
-                        <!-- Category Filter -->
-                        <div class="relative text-sm">
-                            <button id="categoryBtn"
-                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                                <span id="categoryText">Category</span>
-                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="categoryDropdown"
-                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
-                                    <a href="#" class="w-full py-2 dropdown-option"
-                                        data-value="Vegetables">Vegetables</a>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sales Type Filter -->
-                        <div class="relative text-sm">
-                            <button id="salesTypeBtn"
-                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                                <span id="salesTypeText">Sales Type</span>
-                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="salesTypeDropdown"
-                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
-                                    <a href="#" class="w-full py-2 dropdown-option cursor-pointer decoration-none"
-                                        data-value="Retail">Retail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Location Filter -->
-                        <div class="relative text-sm">
-                            <button id="locationBtn"
-                                class="flex items-center justify-between px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500">
-                                <span id="locationText">Location</span>
-                                <svg class="w-4 h-4 ml-2 transition-transform duration-200" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="locationDropdown"
-                                class="absolute top-full left-0 w-full mt-1 bg-white rounded z-20 hidden">
-                                <div class="py-1 flex flex-col gap-1 text-gray-700 text-left">
-                                    <a href="#"
-                                        class="w-full cursor-pointer text-left py-2 dropdown-option decoration-none"
-                                        data-value="New York">New York</a>
-                                </div>
-                            </div>
-
-                            <!-- Filter Chips -->
-
-                        </div>
-                    </div>
-                    <div class="flex gap-2 md:border-l border-gray-200 md:pl-2">
-                        <a href="#" id="allProductsBtn"
-                            class="px-4 py-2 active-filter cursor-pointer filter-chip rounded-lg text-sm transition-colors duration-200">
-                            All Products
-                        </a>
-                        <a href="#" id="organicChip"
-                            class="px-4 py-2 decoration-none cursor-pointer bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
-                            Organic
-                        </a>
-                        <a href="#" id="nonOrganicChip"
-                            class="px-4 decoration-none py-2 cursor-pointer bg-gray-50 border border-gray-200 filter-chip rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
-                            Non-Organic
-                        </a>
-                    </div>
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed top-0 left-0 z-50 w-64 h-screen bg-white sidebar-transition transform -translate-x-full lg:translate-x-0 border-r border-gray-200">
+        <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
+             <!-- Logo -->
+            <div class="flex pb-6">
+                <div class="flex w-full h-auto space-x-2">
+                    <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-14">
                 </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="flex-1 container mx-auto px-4 py-8 cursor-pointer">
-                <!-- Product Catalog Area -->
-                <div id="activeFilters" class="flex flex-col justify-center">
-                    <div id="productGrid"
-                        class="text-[#121714] justify-center font-[500] text-[1rem] grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
-                        <!-- Products will be dynamically inserted here -->
+            <!-- Navigation Menu -->
+            <nav class="flex-1">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-home text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg bg-gray-100 group">
+                            <i class="fas fa-box text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-envelope text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">My Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-file-alt text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Quotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-bookmark text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Saved Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-comments text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-user-cog text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Profile & Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-                        <!-- product card here -->
-                        <div
-                            class="max-w-xs rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover">
-                            <div class="p-4 flex flex-col gap-2">
-                                <h4 class="font-semibold text-gray-800">${product.name}</h4>
-                                <p class="text-sm font-[400] text-[#59964F]">${product.location}</p>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-lg font-[500] text-gray-900">₦${product.price}</span>
-                                    ${product.organic ? '<span
-                                        class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>'
-                                    :
-                                    ''}
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+            <!-- Support Link -->
+            <div class="mt-auto">
+                <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <i class="fas fa-question-circle text-gray-500 group-hover:text-gray-900"></i>
+                    <span class="ml-3">Support / Help Center</span>
+                </a>
             </div>
         </div>
+    </aside>
 
-        <script>
-            function setupDropdown(buttonId, dropdownId) {
-                const button = document.getElementById(buttonId);
-                const dropdown = document.getElementById(dropdownId);
-                const arrow = button.querySelector('svg');
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Fixed Navbar -->
+        <nav class="fixed top-0 right-0 left-0 lg:left-64 bg-white z-30 border-b border-gray-200">
+            <div class="px-4 py-3 lg:px-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <!-- Mobile menu button -->
+                        <button id="toggleSidebar"
+                            class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
 
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.add('hidden');
-                            d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-                        }
-                    });
-                    dropdown.classList.toggle('hidden');
-                    arrow.classList.toggle('rotate-180');
-                });
+                    <!-- Search and Profile -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Search -->
+                        <div class="relative hidden md:block">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                            <input type="text"
+                                class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                placeholder="Search products...">
+                        </div>
+
+                        <!-- Notifications -->
+                        <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span
+                                class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
+                        </button>
+
+                        <!-- Profile -->
+                        <div class="relative">
+                            <button id="profileDropdown"
+                                class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                <img class="w-8 h-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+                                    alt="Profile">
+                            </button>
+                            <div id="profileMenu"
+                                class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                <div class="px-4 py-3">
+                                    <p class="text-sm text-gray-900 font-medium">Rejoice</p>
+                                    <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                                </div>
+                                <ul class="py-1">
+                                    <li><a href="#"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                    </li>
+                                    <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                            out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="pt-20 min-h-screen">
+            <div class="flex flex-col lg:flex-row">
+                <!-- Left Sidebar Filters -->
+                <aside class="w-full lg:w-64 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">Filters</h3>
+
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Category</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="farm-produce">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Farm
+                                    Produce</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="natural-resources">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Natural
+                                    Resources</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="farm-tools">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Farm
+                                    Tools</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sales Type Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Sales Type</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="retail">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Retail</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="wholesale">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Wholesale</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Location Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Location</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="new-york">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">New
+                                    York</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="california">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">California</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="texas">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Texas</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Organic Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Organic</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="organic">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Organic</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Non-Organic Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Non-Organic</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="non-organic">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Non-Organic</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Verified Vendors Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Verified Vendors</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="filter-checkbox hidden" value="verified">
+                                <span
+                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Verified
+                                    Only</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Product Area -->
+                <div class="flex-1 p-6">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Explore Products</h1>
+                        <p class="text-green-600">Find quality farm produce, natural resources, tools, and services from
+                            verified suppliers.</p>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Product Cards will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sample product data
+        const products = [
+            {
+                id: 1,
+                name: 'Fresh Tomatoes',
+                category: 'Farm Produce',
+                image: 'https://images.unsplash.com/photo-1546470427-227a78e5bf3a?w=400',
+                price: '2,500',
+                location: 'Lagos, Nigeria',
+                organic: false
+            },
+            {
+                id: 2,
+                name: 'Cocoa Beans',
+                category: 'Natural Resources',
+                image: 'https://images.unsplash.com/photo-1599639832862-064c1ce1e0f5?w=400',
+                price: '15,000',
+                location: 'Osun, Nigeria',
+                organic: true
+            },
+            {
+                id: 3,
+                name: 'Tractors',
+                category: 'Farm Tools',
+                image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400',
+                price: '5,500,000',
+                location: 'Abuja, Nigeria',
+                organic: false
+            },
+            {
+                id: 4,
+                name: 'Zinc Ore',
+                category: 'Natural Resources',
+                image: 'https://images.unsplash.com/photo-1611070923710-c893b1f9e884?w=400',
+                price: '45,000',
+                location: 'Kano, Nigeria',
+                organic: false
+            },
+            {
+                id: 5,
+                name: 'Timber Logs',
+                category: 'Natural Resources',
+                image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?w=400',
+                price: '25,000',
+                location: 'Cross River, Nigeria',
+                organic: false
+            },
+            {
+                id: 6,
+                name: 'Services',
+                category: 'Farm Produce',
+                image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400',
+                price: '10,000',
+                location: 'Lagos, Nigeria',
+                organic: false
+            },
+            {
+                id: 7,
+                name: 'Organic Vegetables',
+                category: 'Farm Produce',
+                image: 'https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400',
+                price: '3,500',
+                location: 'Ogun, Nigeria',
+                organic: true
+            },
+            {
+                id: 8,
+                name: 'Farm Equipment',
+                category: 'Farm Tools',
+                image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?w=400',
+                price: '125,000',
+                location: 'Kaduna, Nigeria',
+                organic: false
             }
-            setupDropdown('categoryBtn', 'categoryDropdown');
-            setupDropdown('salesTypeBtn', 'salesTypeDropdown');
-            setupDropdown('locationBtn', 'locationDropdown');
+        ];
 
-            document.addEventListener('click', () => {
-                document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
-                    d.classList.add('hidden');
-                    d.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-                });
+        // Render products
+        function renderProducts(productsToRender = products) {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = productsToRender.map(product => `
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <h3 class="font-semibold text-gray-900">${product.name}</h3>
+                            ${product.organic ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>' : ''}
+                        </div>
+                        <p class="text-sm text-green-600 mb-2">${product.category}</p>
+                        <p class="text-sm text-gray-500 mb-3">${product.location}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900">₦${product.price}</span>
+                            <button class="text-green-600 hover:text-green-700 text-sm font-medium">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        renderProducts();
+
+        // Sidebar toggle
+        const toggleSidebar = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Profile dropdown
+        const profileDropdown = document.getElementById('profileDropdown');
+        const profileMenu = document.getElementById('profileMenu');
+
+        profileDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!profileDropdown.contains(e.target) && !profileMenu.contains(e.target)) {
+                profileMenu.classList.add('hidden');
+            }
+        });
+
+        // Filter functionality
+        const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+        filterCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const label = checkbox.nextElementSibling;
+                if (checkbox.checked) {
+                    label.classList.add('bg-green-50', 'border-green-500', 'text-green-700');
+                } else {
+                    label.classList.remove('bg-green-50', 'border-green-500', 'text-green-700');
+                }
             });
-        </script>
+        });
+
+        // Responsive sidebar handling
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    </script>
 </body>
 
 </html>
