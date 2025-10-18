@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-[#FAFCF7]">
     <!-- Mobile overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
-
     <!-- Sidebar -->
     <aside id="sidebar"
-        class="fixed bottom-0 left-0 z-50 w-64 h-screen lg:h-[87%] bg-white sidebar-transition transform -translate-x-full lg:translate-x-0">
+        class="fixed bg-[#FAFCF7] bottom-0 left-0 z-50 w-64 h-screen lg:h-[85%] sidebar-transition transform -translate-x-full lg:translate-x-0">
         <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
             <!-- Navigation Menu -->
             <nav class="flex-1">
@@ -80,7 +79,7 @@
     <div class="lg:ml-64">
         <!-- Fixed Navbar -->
         <nav class="fixed top-0 right-0 left-0 bg-white z-30">
-            <div class="px-4 py-3 lg:px-6">
+            <div class="px-4 lg:px-6">
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
                     <div class="flex pb-6">
@@ -149,287 +148,104 @@
 
         <!-- Page Content -->
         <main class="pt-20 min-h-screen">
-            <div class="flex flex-col lg:flex-row">
-                <!-- Left Sidebar Filters -->
-                <aside class="w-full lg:w-64 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-6">Filters</h3>
+             <!-- Header -->
+                    <div class="mb-8 pt-2 px-6">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Explore Products</h1>
+                        <p class="text-green-600">Find quality farm produce, natural resources, tools, and services from
+                            verified suppliers.</p>
+                    </div>
+            <div class="flex relative flex-col bg-[#FAFCF7] lg:flex-row">
+                <!-- LEFT: Filters -->
+                <aside class="md:fixed md:ml-4 inline lg:w-40 md:px-2 px-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Filters</h3>
 
                     <!-- Category Filter -->
                     <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Category</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="farm-produce">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Farm
-                                    Produce</span>
-                            </label>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="natural-resources">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Natural
-                                    Resources</span>
-                            </label>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="farm-tools">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Farm
-                                    Tools</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Sales Type Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Sales Type</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="retail">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Retail</span>
-                            </label>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="wholesale">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Wholesale</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Location Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Location</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="new-york">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">New
-                                    York</span>
-                            </label>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="california">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">California</span>
-                            </label>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="texas">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Texas</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Organic Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Organic</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="organic">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Organic</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Non-Organic Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Non-Organic</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="non-organic">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Non-Organic</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Verified Vendors Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Verified Vendors</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="filter-checkbox hidden" value="verified">
-                                <span
-                                    class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50">Verified
-                                    Only</span>
-                            </label>
+                        <div class="space-y-2 grid md:grid-cols-1 grid-cols-3 gap-2 ">
+                              <button
+                                class="filter-btn cursor-pointer w-full text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="farm-tools">
+                                Category
+                            </button>
+                            <button
+                                class="filter-btn cursor-pointer w-full text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="farm-produce">
+                                Farm Produce
+                            </button>
+                            <button
+                                class="filter-btn w-full cursor-pointer overflow-hidden text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="natural-resources">
+                                Natural Resources
+                            </button>
+                            <button
+                                class="filter-btn w-full cursor-pointer text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="farm-tools">
+                                Farm Tools
+                            </button>
+                            <button
+                                class="filter-btn w-full cursor-pointer text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="organic">
+                                Organic
+                            </button>
+                            <button
+                                class="filter-btn cursor-pointer w-full text-left px-3 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition whitespace-nowrap"
+                                data-filter="inorganic">
+                                Inorganic
+                            </button>
                         </div>
                     </div>
                 </aside>
 
                 <!-- Main Product Area -->
-                <div class="flex-1 p-6">
-                    <!-- Header -->
-                    <div class="mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Explore Products</h1>
-                        <p class="text-green-600">Find quality farm produce, natural resources, tools, and services from
-                            verified suppliers.</p>
-                    </div>
+                <div class="flex-1 p-6 md:ml-40">
 
                     <!-- Product Grid -->
-                    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <!-- Product Cards will be inserted here -->
+                    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+                        <!-- Product card -->
+                        <div class="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400" alt="Services" class="w-full h-48 rounded-md object-cover">
+                            <div class="py-2 flex flex-col gap-1">
+                                <div class="flex items-start justify-between">
+                                    <h3 class="font-semibold text-gray-900">Fresh fruits</h3>
+                                </div>
+                                <p class="text-sm text-green-600 mb-2">Category: Farm Produce</p>
+                    
+                            </div>
+                        </div>
+
+                        <!-- product card -->
+                        <div class="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400" alt="Services" class="w-full h-48 rounded-md object-cover">
+                            <div class="py-2 flex flex-col gap-1">
+                                <div class="flex items-start justify-between">
+                                    <h3 class="font-semibold text-gray-900">Fresh fruits</h3>
+                                </div>
+                                <p class="text-sm text-green-600 mb-2">Category: Farm Produce</p>
+                    
+                            </div>
+                        </div>
+
+                         <!-- Product card -->
+                        <div class="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400" alt="Services" class="w-full h-48 rounded-md object-cover">
+                            <div class="py-2 flex flex-col gap-1">
+                                <div class="flex items-start justify-between">
+                                    <h3 class="font-semibold text-gray-900">Fresh fruits</h3>
+                                </div>
+                                <p class="text-sm text-green-600 mb-2">Category: Farm Produce</p>
+                    
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script>
-        // Sample product data
-        const products = [
-            {
-                id: 1,
-                name: 'Fresh Tomatoes',
-                category: 'Farm Produce',
-                image: 'https://images.unsplash.com/photo-1546470427-227a78e5bf3a?w=400',
-                price: '2,500',
-                location: 'Lagos, Nigeria',
-                organic: false
-            },
-            {
-                id: 2,
-                name: 'Cocoa Beans',
-                category: 'Natural Resources',
-                image: 'https://images.unsplash.com/photo-1599639832862-064c1ce1e0f5?w=400',
-                price: '15,000',
-                location: 'Osun, Nigeria',
-                organic: true
-            },
-            {
-                id: 3,
-                name: 'Tractors',
-                category: 'Farm Tools',
-                image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400',
-                price: '5,500,000',
-                location: 'Abuja, Nigeria',
-                organic: false
-            },
-            {
-                id: 4,
-                name: 'Zinc Ore',
-                category: 'Natural Resources',
-                image: 'https://images.unsplash.com/photo-1611070923710-c893b1f9e884?w=400',
-                price: '45,000',
-                location: 'Kano, Nigeria',
-                organic: false
-            },
-            {
-                id: 5,
-                name: 'Timber Logs',
-                category: 'Natural Resources',
-                image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?w=400',
-                price: '25,000',
-                location: 'Cross River, Nigeria',
-                organic: false
-            },
-            {
-                id: 6,
-                name: 'Services',
-                category: 'Farm Produce',
-                image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400',
-                price: '10,000',
-                location: 'Lagos, Nigeria',
-                organic: false
-            },
-            {
-                id: 7,
-                name: 'Organic Vegetables',
-                category: 'Farm Produce',
-                image: 'https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400',
-                price: '3,500',
-                location: 'Ogun, Nigeria',
-                organic: true
-            },
-            {
-                id: 8,
-                name: 'Farm Equipment',
-                category: 'Farm Tools',
-                image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?w=400',
-                price: '125,000',
-                location: 'Kaduna, Nigeria',
-                organic: false
-            }
-        ];
-
-        // Render products
-        function renderProducts(productsToRender = products) {
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = productsToRender.map(product => `
-                <div class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <div class="flex items-start justify-between mb-2">
-                            <h3 class="font-semibold text-gray-900">${product.name}</h3>
-                            ${product.organic ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Organic</span>' : ''}
-                        </div>
-                        <p class="text-sm text-green-600 mb-2">${product.category}</p>
-                        <p class="text-sm text-gray-500 mb-3">${product.location}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-gray-900">₦${product.price}</span>
-                            <button class="text-green-600 hover:text-green-700 text-sm font-medium">View Details</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Initialize
-        renderProducts();
-
-        // Sidebar toggle
-        const toggleSidebar = document.getElementById('toggleSidebar');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        toggleSidebar.addEventListener('click', () => {
-            sidebar.classList.remove('-translate-x-full');
-            overlay.classList.remove('hidden');
-        });
-
-        overlay.addEventListener('click', () => {
-            sidebar.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
-        });
-
-        // Profile dropdown
-        const profileDropdown = document.getElementById('profileDropdown');
-        const profileMenu = document.getElementById('profileMenu');
-
-        profileDropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profileMenu.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!profileDropdown.contains(e.target) && !profileMenu.contains(e.target)) {
-                profileMenu.classList.add('hidden');
-            }
-        });
-
-        // Filter functionality
-        const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
-        filterCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const label = checkbox.nextElementSibling;
-                if (checkbox.checked) {
-                    label.classList.add('bg-green-50', 'border-green-500', 'text-green-700');
-                } else {
-                    label.classList.remove('bg-green-50', 'border-green-500', 'text-green-700');
-                }
-            });
-        });
-
-        // Responsive sidebar handling
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.add('hidden');
-            } else {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
-    </script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

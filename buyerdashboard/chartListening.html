@@ -4,14 +4,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Interface</title>
+    <title>TradeSource || Chart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
+<body class="bg-gray-50">
+    <!-- Mobile overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
 
-<body class="bg-white min-h-screen px-[5%] md:ml-64">
-    <div class="w-full bg-white min-h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed bottom-0 left-0 z-50 w-64 h-screen lg:h-[85%] bg-[#FAFCF7] sidebar-transition transform -translate-x-full lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
+            <!-- Navigation Menu -->
+            <nav class="flex-1">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-home text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg group">
+                            <i class="fas fa-box text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-envelope text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">My Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-file-alt text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Quotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-bookmark text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Saved Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex bg-gray-100 items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-comments text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-user-cog text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Profile & Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Support Link -->
+            <div class="mt-auto">
+                <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <i class="fas fa-question-circle text-gray-500 group-hover:text-gray-900"></i>
+                    <span class="ml-3">Support / Help Center</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Fixed Navbar -->
+         <nav class="fixed top-0 right-0 left-0 bg-white z-30">
+            <div class="px-4 lg:px-6">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex pb-6">
+                        <div class="flex w-full h-auto space-x-2">
+                            <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-10 mt-2 md:h-14">
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex items-center">
+
+                            <!-- Mobile menu button -->
+                            <button id="toggleSidebar"
+                                class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- Search and Profile -->
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative hidden md:block">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
+                                </div>
+                                <input type="text"
+                                    class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                    placeholder="Search products...">
+                            </div>
+
+                            <!-- Notifications -->
+                            <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
+                                <i class="fas fa-bell text-lg"></i>
+                                <span
+                                    class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
+                            </button>
+
+                            <!-- Profile -->
+                            <div class="relative">
+                                <button id="profileDropdown"
+                                    class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+                                        alt="Profile">
+                                </button>
+                                <div id="profileMenu"
+                                    class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                    <div class="px-4 py-3">
+                                        <p class="text-sm text-gray-900 font-medium">Rejoice</p>
+                                        <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                                    </div>
+                                    <ul class="py-1">
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                        </li>
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                                out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="pt-20 p-4 bg-[#FAFCF7]">
+            <div class="w-full min-h-screen">
         <!-- Header -->
         <div class="py-6">
             <h1 class="text-2xl font-bold text-black">Chat</h1>
@@ -77,42 +215,11 @@
 
         </div>
     </div>
+        </main>
+    </div>
 
-    <script>
-        // Add click functionality to chat items
-        document.addEventListener('DOMContentLoaded', function () {
-            const chatItems = document.querySelectorAll('.cursor-pointer');
-
-            chatItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    // Remove selected state from all items
-                    chatItems.forEach(i => {
-                        i.classList.remove('bg-gray-100');
-                        i.classList.add('hover:bg-gray-50');
-                    });
-
-                    // Add selected state to clicked item
-                    this.classList.add('bg-gray-100');
-                    this.classList.remove('hover:bg-gray-50');
-                });
-            });
-
-            // Search functionality
-            const searchInput = document.querySelector('input[type="text"]');
-            searchInput.addEventListener('input', function () {
-                const searchTerm = this.value.toLowerCase();
-                chatItems.forEach(item => {
-                    const name = item.querySelector('h3').textContent.toLowerCase();
-                    const message = item.querySelector('p').textContent.toLowerCase();
-
-                    if (name.includes(searchTerm) || message.includes(searchTerm)) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
+    <script src="../js/script.js">
+        
     </script>
 </body>
 

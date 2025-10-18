@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeSource360 || Save Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-[#FAFCF7]">
+    <!-- Mobile overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed bg-[#FAFCF7] bottom-0 left-0 z-50 w-64 h-screen lg:h-[85%] sidebar-transition transform -translate-x-full lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
+            <!-- Navigation Menu -->
+            <nav class="flex-1">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#" class="flex items-center p-3 focus:bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-home text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center focus:bg-gray-100 p-3 text-gray-900 rounded-lg group">
+                            <i class="fas fa-box text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center focus:gray-100 bg-gray-100 p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-envelope text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">My Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 focus:bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-file-alt text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Quotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center focus:bg-gray-100 bg-blue-100 p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-bookmark text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Saved Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 focus:bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-comments text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center focus:bg-gray-100 p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-user-cog text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Profile & Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Support Link -->
+            <div class="mt-auto">
+                <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <i class="fas fa-question-circle text-gray-500 group-hover:text-gray-900"></i>
+                    <span class="ml-3">Support / Help Center</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Fixed Navbar -->
+        <nav class="fixed top-0 right-0 left-0 bg-white z-30">
+            <div class="px-4 lg:px-6">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex pb-6">
+                        <div class="flex w-full h-auto space-x-2">
+                            <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-10 mt-2 md:h-14">
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex items-center">
+
+                            <!-- Mobile menu button -->
+                            <button id="toggleSidebar"
+                                class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- Search and Profile -->
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative hidden md:block">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
+                                </div>
+                                <input type="text"
+                                    class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                    placeholder="Search products...">
+                            </div>
+
+                            <!-- Notifications -->
+                            <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
+                                <i class="fas fa-bell text-lg"></i>
+                                <span
+                                    class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
+                            </button>
+
+                            <!-- Profile -->
+                            <div class="relative">
+                                <button id="profileDropdown"
+                                    class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+                                        alt="Profile">
+                                </button>
+                                <div id="profileMenu"
+                                    class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                    <div class="px-4 py-3">
+                                        <p class="text-sm text-gray-900 font-medium">Rejoice</p>
+                                        <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                                    </div>
+                                    <ul class="py-1">
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                        </li>
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                                out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="pt-20 p-6 min-h-screen">
+            <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <!-- Header with dotted border -->
+        <div class="p-6">
+            <!-- Title -->
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 pt-2 mb-6">Saved Product</h1>
+
+            <!-- Search Bar -->
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" placeholder="Search quotes"
+                        class="bg-transparent border-none outline-none flex-1 text-green-700 placeholder-green-600 text-base">
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Organic Apples -->
+                <div class="group cursor-pointer px-[3%] md:px-1">
+                    <div class="flex flex-col gap-1 aspect-square rounded-lg transition-transform duration-200 hover:scale-105">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMkY0RjRGIiByeD0iOCIvPgo8Y2lyY2xlIGN4PSI2MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiNEQzI2MjYiLz4KPGJ5Y2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjIwIiBmaWxsPSIjMTZBMzRBIi8+CjxjaXJjbGUgY3g9IjE0MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiNGRkQ3MDAiLz4KPC9zdmc+"
+                            alt="Product.name">
+                             <h3 class="text-gray-800 font-[500]  md:text-base">Organic Apples</h3>
+                    </div>
+                   
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+        </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

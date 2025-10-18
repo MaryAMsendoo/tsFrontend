@@ -1,131 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Resources Market Place</title>
+    <title>TradeSource360 || Natural Resources</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        }
-
-        function closeBanner() {
-            const banner = document.getElementById('infoBanner');
-            banner.style.transition = 'all 0.3s ease-out';
-            banner.style.opacity = '0';
-            banner.style.transform = 'translateY(-10px)';
-            setTimeout(() => {
-                banner.remove();
-            }, 300);
-        }
-    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Mobile Menu Button -->
-    <button onclick="toggleSidebar()" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-3 rounded-lg shadow-lg">
-        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-    </button>
 
-    <!-- Overlay -->
-    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden hidden"></div>
+<body class="bg-[#FAFCF7]">
+    <!-- Mobile overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden overlay-transition"></div>
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed bg-[#FAFCF7] bottom-0 left-0 z-50 w-64 h-screen lg:h-[85%] sidebar-transition transform -translate-x-full lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
+            <!-- Navigation Menu -->
+            <nav class="flex-1">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-home text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg bg-gray-100 group">
+                            <i class="fas fa-box text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-envelope text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">My Inquiries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-file-alt text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Quotes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-bookmark text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Saved Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-comments text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <i class="fas fa-user-cog text-gray-500 group-hover:text-gray-900"></i>
+                            <span class="ml-3">Profile & Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-    <div class="flex min-h-screen">
-        <!-- Sidebar -->
-        <aside id="sidebar" class="fixed lg:sticky top-0 left-0 h-screen w-64 p-6 bg-gray-50 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 overflow-y-auto">
-            <!-- Close Button (Mobile) -->
-            <button onclick="toggleSidebar()" class="lg:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
+            <!-- Support Link -->
+            <div class="mt-auto">
+                <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <i class="fas fa-question-circle text-gray-500 group-hover:text-gray-900"></i>
+                    <span class="ml-3">Support / Help Center</span>
+                </a>
+            </div>
+        </div>
+    </aside>
 
-            <!-- Search -->
-            <div class="mb-8">
-                <div class="relative">
-                    <input type="text" placeholder="Search" 
-                        class="w-full pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <svg class="w-5 h-5 absolute left-3 top-2.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Fixed Navbar -->
+        <nav class="fixed top-0 right-0 left-0 bg-white z-30">
+            <div class="px-4 lg:px-6">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex pb-6">
+                        <div class="flex w-full h-auto space-x-2">
+                            <img src="../assets/logo.png" alt="TradeSource360 Logo" class="w-full h-10 mt-2 md:h-14">
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex items-center">
+
+                            <!-- Mobile menu button -->
+                            <button id="toggleSidebar"
+                                class="inline-flex items-center p-2 text-xl text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- Search and Profile -->
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative hidden md:block">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
+                                </div>
+                                <input type="text"
+                                    class="block w-64 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-green-500 focus:border-green-500"
+                                    placeholder="Search products...">
+                            </div>
+
+                            <!-- Notifications -->
+                            <button class="relative p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100">
+                                <i class="fas fa-bell text-lg"></i>
+                                <span
+                                    class="absolute top-1 right-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-600 rounded-full">3</span>
+                            </button>
+
+                            <!-- Profile -->
+                            <div class="relative">
+                                <button id="profileDropdown"
+                                    class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+                                        alt="Profile">
+                                </button>
+                                <div id="profileMenu"
+                                    class="hidden absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                    <div class="px-4 py-3">
+                                        <p class="text-sm text-gray-900 font-medium">Rejoice</p>
+                                        <p class="text-sm text-gray-500 truncate">rejoice@example.com</p>
+                                    </div>
+                                    <ul class="py-1">
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                        </li>
+                                        <li><a href="#"
+                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign
+                                                out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </nav>
 
-            <!-- Resource Type -->
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-gray-900 mb-3">Resource Type</label>
-                <div class="relative">
-                    <select class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none cursor-pointer">
-                        <option>Select Resource</option>
-                        <option>Columbite-Tantalite</option>
-                        <option>Cassiterite</option>
-                        <option>Wolframite</option>
-                        <option>Zinc Ore</option>
-                    </select>
-                    <svg class="w-5 h-5 absolute right-3 top-2.5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Location -->
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-gray-900 mb-3">Location (State)</label>
-                <div class="relative">
-                    <select class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none cursor-pointer">
-                        <option>Select State</option>
-                        <option>Plateau</option>
-                        <option>Nasarawa</option>
-                        <option>Kaduna</option>
-                        <option>Ebonyi</option>
-                    </select>
-                    <svg class="w-5 h-5 absolute right-3 top-2.5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="flex items-center">
-                <input type="checkbox" id="verified" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
-                <label for="verified" class="ml-2 text-sm text-gray-700 cursor-pointer">Verified Suppliers Only</label>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8">
-            <!-- Header -->
-            <div class="mb-6">
+        <!-- Page Content -->
+        <main class="pt-20 min-h-screen">
+             <!-- Header -->
+            <div class="mb-6 px-4">
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Natural Resources Market Place</h1>
                 <p class="text-sm sm:text-base text-gray-600">Access premium mining products directly from verified Nigerian suppliers.</p>
             </div>
 
             <!-- Info Banner -->
-            <div id="infoBanner" style="background: linear-gradient(to right, #59964F, #4FB3BF);" class="text-white rounded-lg p-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div id="infoBanner" style="background: linear-gradient(to right, #59964F, #4FB3BF);" class="text-white rounded-lg mx-4 md:p-4 p-2 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div class="flex items-start sm:items-center space-x-3 flex-1">
                     <svg class="w-6 h-6 flex-shrink-0 mt-0.5 sm:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <div>
                         <p class="font-medium text-sm sm:text-base">All suppliers are verified under Nigerian Export Standards for your peace of mind.</p>
-                        <a href="#" class="mt-2 inline-block px-4 py-1 bg-white text-teal-600 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors">
+                        <a href="#" class="mt-2 inline-block px-5 py-2 bg-white text-teal-600 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors">
                             Learn More
                         </a>
                     </div>
                 </div>
-                <button onclick="closeBanner()" class="text-white hover:text-gray-200 transition-colors self-end sm:self-center">
+                <button onclick="closeBanner()" class="text-white hover:text-gray-200 transition-colors self-end mb- sm:self-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
+            <div class="flex relative flex-col bg-[#FAFCF7] lg:flex-row">
+                <!-- LEFT: Filters -->
+                <aside class="md:fixed md:ml-4 inline lg:w-40 md:px-2 px-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Filter</h3>
 
-            <!-- Product Cards -->
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <div class="grid md:grid-cols-1 grid-cols-3 gap-2 ">
+                            <!-- Resource Type -->
+                            <div class="mb-1">
+                                <label class="block text-sm font-bold text-gray-900 mb-2">Resource Type</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full px-2 py-2 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none cursor-pointer">
+                                        <option>Select Resource</option>
+                                        <option>Columbite-Tantalite</option>
+                                        <option>Cassiterite</option>
+                                        <option>Wolframite</option>
+                                        <option>Zinc Ore</option>
+                                    </select>
+                                    <svg class="w-5 h-5 absolute right-3 top-2.5 text-gray-400 pointer-events-none"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="mb-1">
+                                <label class="block text-sm font-bold text-gray-900 mb-2">Location (State)</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full px-2 py-2 bg-gray-50 border border-gray-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none cursor-pointer">
+                                        <option>Select State</option>
+                                        <option>Plateau</option>
+                                        <option>Nasarawa</option>
+                                        <option>Kaduna</option>
+                                        <option>Ebonyi</option>
+                                    </select>
+                                    <svg class="w-5 h-5 absolute right-3 top-2.5 text-gray-400 pointer-events-none"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Product Area -->
+                <div class="flex-1 p-6 md:ml-40">
+
+                     <!-- Product Cards -->
             <div class="space-y-6">
                 <!-- Card 1: Columbite-Tantalite -->
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6">
@@ -135,8 +237,8 @@
                     <div class="flex-1">
                         <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">High-Grade Columbite-Tantalite</h3>
                         <p class="text-gray-600 text-sm mb-4">Sourced from the rich mineral deposits of Plateau and Nasarawa states, this high-grade Columbite-Tantalite is ideal for advanced technological applications.</p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="#" class="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors text-sm font-medium w-full sm:w-auto">
+                        <div class="flex gap-3">
+                            <a href="#" class="px-6 py-2 text-center bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors text-sm font-medium w-full sm:w-auto">
                                 View Details
                             </a>
                             <button class="px-6 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors text-sm font-medium w-full sm:w-auto">
@@ -146,7 +248,12 @@
                     </div>
                 </div>
             </div>
+                </div>
+            </div>
         </main>
     </div>
+
+    <script src="../js/script.js"></script>
 </body>
+
 </html>
